@@ -323,3 +323,31 @@ body.noscroll{overflow:hidden}
 .pkgsel.on{display:flex;align-items:center;justify-content:space-between;gap:8px}
 .pkgsel button{float:none;flex:none}
 .pkg .hl{margin-bottom:18px}
+
+/* ---- Tagline ---- */
+.logo .lt{display:flex;flex-direction:column;line-height:1;color:inherit}
+.logo em{font-style:normal;font-size:.54rem;letter-spacing:.22em;text-transform:uppercase;color:var(--sky-d);font-weight:600;margin-top:4px}
+.site-footer .logo em{color:#8fc9f4}
+.topbar b{font-weight:600;letter-spacing:.04em;color:#fff}
+.foot .tag-line{font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;font-weight:600;color:#8fc9f4;margin-top:14px}
+.foot .tag-line+p{margin-top:6px}
+
+/* ---- Google reviews ---- */
+.rsum{display:inline-flex;align-items:center;gap:10px;margin-top:18px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 18px;box-shadow:var(--shadow)}
+.rsum b{font-size:1.4rem;color:var(--navy)}
+.rsum small{color:var(--mute);font-size:.82rem}
+.stars{color:#f5a623;letter-spacing:2px;font-size:1rem}
+.rv{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px;display:flex;flex-direction:column;gap:12px;box-shadow:var(--shadow)}
+.rv blockquote{color:var(--ink);font-size:.94rem;line-height:1.65;flex:1}
+.rv figcaption{display:flex;flex-direction:column;border-top:1px dashed var(--line);padding-top:12px}
+.rv figcaption b{color:var(--navy);font-size:.92rem}
+.rv figcaption small{color:var(--mute);font-size:.78rem}
+@media (max-width:900px){.rv-grid{grid-template-columns:1fr}}
+.rv blockquote{white-space:pre-line}
+.rv.long blockquote{max-height:11.5em;overflow:hidden;-webkit-mask-image:linear-gradient(#000 70%,transparent);mask-image:linear-gradient(#000 70%,transparent)}
+.rv.long.open blockquote{max-height:none;-webkit-mask-image:none;mask-image:none}
+.rmore{align-self:flex-start;border:0;background:none;color:var(--sky-d);font:inherit;font-weight:600;font-size:.84rem;cursor:pointer;padding:0;margin-top:-4px}
+.rmore:hover{text-decoration:underline}
+a.rsum{text-decoration:none;transition:transform .3s var(--ease)}
+a.rsum:hover{transform:translateY(-2px)}
+.rv-grid{align-items:start}

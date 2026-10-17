@@ -181,6 +181,15 @@
     });
   });
 
+  // Long Google reviews: "Read more" shows the full, unedited text
+  d.querySelectorAll(".rmore").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var card = b.closest(".rv");
+      var open = card.classList.toggle("open");
+      b.textContent = open ? "Show less" : "Read more";
+    });
+  });
+
   d.querySelectorAll("[data-wa]").forEach(function (a) {
     if (CONFIG.whatsapp) { a.href = "https://wa.me/" + CONFIG.whatsapp; a.target = "_blank"; a.rel = "noopener"; }
     else a.style.display = "none";
