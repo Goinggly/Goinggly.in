@@ -387,3 +387,14 @@ a.rsum:hover{transform:translateY(-2px)}
 .pkg .price b{display:block;font-size:1.65rem;line-height:1.15;color:var(--orange-d);letter-spacing:-.02em}
 .pkg .price b.onreq{font-size:1rem;color:var(--navy);padding:6px 0}
 .pkg .foot .btn{padding:13px 26px;border-radius:14px}
+
+/* Phone/tablet hero: photo sits BEHIND the headline text (form follows below on navy) */
+@media (max-width:1020px){
+  .hero{--ih:560px}
+  .hero>.ph{position:absolute;inset:0 0 auto 0;height:var(--ih);z-index:-2;box-shadow:none;-webkit-mask-image:linear-gradient(#000 80%,transparent);mask-image:linear-gradient(#000 80%,transparent)}
+  .hero::before{display:block;inset:0 0 auto 0;height:var(--ih);background:linear-gradient(180deg,rgba(7,28,56,.74),rgba(7,28,56,.6) 55%,rgba(7,28,56,.72))}
+  .hero .container{padding-top:38px;padding-bottom:40px;gap:26px}
+}
+@media (max-width:620px){
+  .hero{--ih:640px}
+}
