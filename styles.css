@@ -353,3 +353,9 @@ a.rsum:hover{transform:translateY(-2px)}
 .rv-grid{align-items:start}
 .rnote{font-size:.74rem;color:var(--mute);margin-top:6px}
 .rsum{margin-top:14px}
+
+/* Contact details */
+.fab.call{background:var(--sky)}
+.foot .addr a{line-height:1.5;display:inline-block}
+.topbar a{white-space:nowrap}
+@media (max-width:620px){.site-footer{padding-bottom:96px}}
