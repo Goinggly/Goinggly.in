@@ -146,6 +146,24 @@
     });
   });
 
+  // Package cards: "View details" expands the card to show the day-by-day itinerary
+  d.querySelectorAll("[data-toggle]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var card = b.closest(".pkg");
+      var open = !card.classList.contains("open");
+      var grid = card.parentElement;
+      grid.querySelectorAll(".pkg.open").forEach(function (c) { if (c !== card) setOpen(c, false); });
+      setOpen(card, open);
+      if (open) setTimeout(function () { card.scrollIntoView({ behavior: "smooth", block: "start" }); }, 60);
+    });
+  });
+  function setOpen(card, open) {
+    card.classList.toggle("open", open);
+    var b = card.querySelector("[data-toggle]");
+    b.setAttribute("aria-expanded", open);
+    b.querySelector(".t").textContent = open ? "Hide details" : "View details";
+  }
+
   // "Get quote" on a package: tag the main form with the package and jump to it
   d.querySelectorAll("[data-package]").forEach(function (b) {
     b.addEventListener("click", function (e) {
