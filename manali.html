@@ -18,7 +18,7 @@
 <script>document.documentElement.classList.add('js')</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=mvc1pp5k">
+<link rel="stylesheet" href="styles.css?v=mvc9wj5f">
 </head>
 <body>
 <div class="topbar"><div class="container"><span>✈ Thailand &amp; Himachal holiday specialists</span><span class="hide-m">Free custom quote · <a href="mailto:info@goinggly.in">info@goinggly.in</a></span></div></div>
@@ -31,7 +31,7 @@
       <div class="dd-menu"><small>Thailand</small><a href="bangkok.html">Bangkok</a><a href="pattaya.html">Pattaya</a><a href="phuket.html">Phuket</a><a href="krabi.html">Krabi</a><small>Himachal Pradesh</small><a href="shimla.html">Shimla</a><a href="manali.html">Manali</a></div></div>
     <a href="about.html">About</a>
     <a href="#quote">Contact</a>
-    <a href="#quote" class="cta">Get free quote</a>
+    <a href="#quote" class="cta" data-quote>Get free quote</a>
   </nav>
 </div></header>
 <section class="hero"><div class="ph " data-name="manali-hero.jpg" style="--a:#cfe6fb;--b:#4a86c8;"><img src="images/manali-hero.jpg" alt="Manali, India" width="1600" height="900" fetchpriority="high" onerror="this.remove()"></div>
@@ -46,15 +46,14 @@
     <input type="hidden" name="package" value="">
     <div class="pkgsel"><button type="button" aria-label="Remove package">×</button></div>
     <div><label>Name <b>*</b><input name="name" required autocomplete="name" placeholder="Your full name"></label></div>
-    <div><label>Mobile number <b>*</b><span class="pre"><span>+91</span><input name="phone" type="tel" inputmode="numeric" required autocomplete="tel-national" placeholder="10-digit number"></span></label></div>
-    <div class="full"><label>Email <small style="font-weight:400;color:var(--mute)">(optional)</small><input name="email" type="email" autocomplete="email" placeholder="you@email.com"></label></div>
-    <div class="full"><label>Destination<select name="region"><option value="">Select destination</option><option>Thailand</option><option>Himachal Pradesh</option></select></label></div>
-    <div class="full"><label>Cities <small style="font-weight:400;color:var(--mute)">(select one or more)</small></label><div class="chips"></div></div>
-    <div><label>Travel date<input name="date" type="date"></label></div>
+    <div><label>Mobile <b>*</b><span class="pre"><span>+91</span><input name="phone" type="tel" inputmode="numeric" required autocomplete="tel-national" placeholder="10-digit number"></span></label></div>
+    <div><label>Destination<select name="region"><option value="">Select</option><option>Thailand</option><option>Himachal Pradesh</option></select></label></div>
     <div><label>Travellers<input name="pax" type="number" min="1" max="50" value="2"></label></div>
-    <div class="full"><label>Notes<textarea name="msg" rows="2" placeholder="Honeymoon, kids, budget, hotel type…"></textarea></label></div>
+    <div class="full"><label>Cities <small>(select one or more)</small></label><div class="chips"></div></div>
+    <div><label>Travel date<input name="date" type="date"></label></div>
+    <div><label>Email <small>(optional)</small><input name="email" type="email" autocomplete="email" placeholder="you@email.com"></label></div>
+    <div class="full"><label>Notes <small>(optional)</small><textarea name="msg" rows="1" placeholder="Honeymoon, kids, budget…"></textarea></label></div>
     <div class="full"><button class="btn btn-orange btn-w" type="submit">Get my free quote →</button></div>
-    <p class="fine">🔒 We only use your details to plan your trip.</p>
   </form>
   <div class="okbox"><div class="tick">✓</div><h3>Thank you!</h3><p class="sub">We've received your enquiry. Our travel expert will contact you shortly.</p></div>
 </div>
@@ -62,56 +61,27 @@
 <div class="facts"><div class="container"><div class="row"><div class="f"><small>Best time</small><b>Mar – Jun · Oct – Feb (snow)</b></div><div class="f"><small>Ideal stay</small><b>3 – 4 nights</b></div><div class="f"><small>Perfect for</small><b>Couples · Friends · Adventure</b></div><div class="f"><small>Getting there</small><b>Overnight bus from Delhi, or fly to Bhuntar</b></div></div></div></div>
 <section class="section alt" id="packages"><div class="container">
   <div class="section-head center reveal"><span class="eyebrow">Suggested packages</span><h2>Manali holiday packages</h2><p class="lede">Pick a starting point — we'll customise hotels, dates and activities for you.</p></div>
-  <div class="grid d4 pk-grid"><article class="pkg reveal" style="--d:0s" id="pkg-mnl"><div class="ph " data-name="pkg-mnl.jpg" style="--a:#cfe6fb;--b:#4a86c8;"><img src="images/pkg-mnl.jpg" alt="Manali Escape holiday package" width="800" height="600" loading="lazy" onerror="this.remove()"><span class="dur">3N / 4D</span></div>
-  <div class="body"><h3>Manali Escape</h3><p class="route">Manali 3N</p>
-  <div class="inc"><span>Hotels</span><span>Daily breakfast</span><span>Private cab</span><span>Sightseeing</span></div>
+  <div class="grid d3 pk-grid"><article class="pkg reveal" style="--d:0s" id="pkg-mnl"><div class="ph " data-name="pkg-mnl.jpg" style="--a:#cfe6fb;--b:#4a86c8;"><img src="images/pkg-mnl.jpg" alt="Manali Escape holiday package" width="800" height="600" loading="lazy" onerror="this.remove()"><span class="dur">3N / 4D</span></div>
+  <div class="body"><h3>Manali Escape</h3>
+  <div class="route2"><span class="rc"><b>Manali</b><small>3 nights</small></span></div>
+  <ul class="hl"><li>Solang Valley adventure</li><li>Atal Tunnel & Sissu</li></ul>
   <div class="foot"><div class="price"><small>Starting from</small><b>₹ XX,XXX</b><small>per person*</small></div>
-  <div class="btns"><button type="button" class="btn btn-line" data-toggle aria-expanded="false" aria-controls="more-mnl"><span class="t">View details</span> <i>▾</i></button>
-  <a href="#quote" class="btn btn-orange" data-package="Manali Escape (3N/4D)">Get quote</a></div></div>
-  <div class="more" id="more-mnl"><div class="more-in">
-    <h4 class="mh">Day-by-day itinerary · 3N / 4D</h4>
-    <ol class="tl"><li><span class="dn">Day 1</span><h4>Arrive in Manali</h4><p>Pick-up from Bhuntar airport or Kullu and drive to Manali. Check in and unwind. Evening at Mall Road and Hadimba Temple.</p></li><li><span class="dn">Day 2</span><h4>Solang Valley adventure</h4><p>Solang Valley for snow activities and skiing in winter, or paragliding, ropeway and zorbing in warmer months.</p></li><li><span class="dn">Day 3</span><h4>Atal Tunnel & Sissu</h4><p>Drive through the Atal Tunnel to the Lahaul valley and Sissu. Subject to road, tunnel and weather conditions; Rohtang Pass is permit-based and seasonal.</p></li><li><span class="dn">Day 4</span><h4>Departure</h4><p>Free morning for a walk through Old Manali's cafés. Breakfast, check-out and drop for your onward journey.</p></li></ol>
-    <div class="two inc2"><div class="panel"><h4>Included</h4><ul><li>3 nights' accommodation with daily breakfast</li><li>Private cab for transfers and sightseeing</li><li>Sightseeing and tours as per itinerary</li><li>Local support during your trip</li></ul></div><div class="panel no"><h4>Not included</h4><ul><li>Travel to Chandigarh / Delhi</li><li>Visa and travel insurance (we can assist)</li><li>Lunch and dinner unless mentioned</li><li>Optional activities and park / entry fees marked optional</li></ul></div></div>
-    <p class="mnote">Hotels, activities and timings are tailored to your dates and group — this is a sample plan.</p>
-  </div></div></div></article><article class="pkg reveal" style="--d:0.08s" id="pkg-mnl-adv"><div class="ph " data-name="pkg-mnl-adv.jpg" style="--a:#cfe6fb;--b:#4a86c8;"><img src="images/pkg-mnl-adv.jpg" alt="Manali Adventure holiday package" width="800" height="600" loading="lazy" onerror="this.remove()"><span class="dur">4N / 5D</span></div>
-  <div class="body"><h3>Manali Adventure</h3><p class="route">Manali 4N</p>
-  <div class="inc"><span>Hotels</span><span>Daily breakfast</span><span>Private cab</span><span>Sightseeing</span></div>
+  <a href="#quote" class="btn btn-orange" data-quote data-package="Manali Escape (3N/4D)" data-cities="Manali">Get quote</a></div></div></article><article class="pkg reveal" style="--d:0.08s" id="pkg-mnl-adv"><div class="ph " data-name="pkg-mnl-adv.jpg" style="--a:#cfe6fb;--b:#4a86c8;"><img src="images/pkg-mnl-adv.jpg" alt="Manali Adventure holiday package" width="800" height="600" loading="lazy" onerror="this.remove()"><span class="dur">4N / 5D</span></div>
+  <div class="body"><h3>Manali Adventure</h3>
+  <div class="route2"><span class="rc"><b>Manali</b><small>4 nights</small></span></div>
+  <ul class="hl"><li>Solang Valley adventure</li><li>Atal Tunnel & Sissu</li><li>Manali local sightseeing</li></ul>
   <div class="foot"><div class="price"><small>Starting from</small><b>₹ XX,XXX</b><small>per person*</small></div>
-  <div class="btns"><button type="button" class="btn btn-line" data-toggle aria-expanded="false" aria-controls="more-mnl-adv"><span class="t">View details</span> <i>▾</i></button>
-  <a href="#quote" class="btn btn-orange" data-package="Manali Adventure (4N/5D)">Get quote</a></div></div>
-  <div class="more" id="more-mnl-adv"><div class="more-in">
-    <h4 class="mh">Day-by-day itinerary · 4N / 5D</h4>
-    <ol class="tl"><li><span class="dn">Day 1</span><h4>Arrive in Manali</h4><p>Pick-up from Bhuntar airport or Kullu and drive to Manali. Check in and unwind. Evening at Mall Road and Hadimba Temple.</p></li><li><span class="dn">Day 2</span><h4>Solang Valley adventure</h4><p>Solang Valley for snow activities and skiing in winter, or paragliding, ropeway and zorbing in warmer months.</p></li><li><span class="dn">Day 3</span><h4>Atal Tunnel & Sissu</h4><p>Drive through the Atal Tunnel to the Lahaul valley and Sissu. Subject to road, tunnel and weather conditions; Rohtang Pass is permit-based and seasonal.</p></li><li><span class="dn">Day 4</span><h4>Manali local sightseeing</h4><p>Hadimba Temple, Manu Temple, Vashisht hot springs and Old Manali's riverside cafés.</p></li><li><span class="dn">Day 5</span><h4>Departure</h4><p>Free morning for a walk through Old Manali's cafés. Breakfast, check-out and drop for your onward journey.</p></li></ol>
-    <div class="two inc2"><div class="panel"><h4>Included</h4><ul><li>4 nights' accommodation with daily breakfast</li><li>Private cab for transfers and sightseeing</li><li>Sightseeing and tours as per itinerary</li><li>Local support during your trip</li></ul></div><div class="panel no"><h4>Not included</h4><ul><li>Travel to Chandigarh / Delhi</li><li>Visa and travel insurance (we can assist)</li><li>Lunch and dinner unless mentioned</li><li>Optional activities and park / entry fees marked optional</li></ul></div></div>
-    <p class="mnote">Hotels, activities and timings are tailored to your dates and group — this is a sample plan.</p>
-  </div></div></div></article><article class="pkg reveal" style="--d:0.16s" id="pkg-mnl-hm"><div class="ph " data-name="pkg-mnl-hm.jpg" style="--a:#cfe6fb;--b:#4a86c8;"><img src="images/pkg-mnl-hm.jpg" alt="Manali Honeymoon holiday package" width="800" height="600" loading="lazy" onerror="this.remove()"><span class="dur">5N / 6D</span></div>
-  <div class="body"><h3>Manali Honeymoon</h3><p class="route">Manali 5N</p>
-  <div class="inc"><span>Resort stay</span><span>Daily breakfast</span><span>Private cab</span><span>Candlelight dinner</span></div>
+  <a href="#quote" class="btn btn-orange" data-quote data-package="Manali Adventure (4N/5D)" data-cities="Manali">Get quote</a></div></div></article><article class="pkg reveal" style="--d:0.16s" id="pkg-shl-mnl"><div class="ph " data-name="pkg-shl-mnl.jpg" style="--a:#b8cdea;--b:#5d7fb5;"><img src="images/pkg-shl-mnl.jpg" alt="Shimla & Manali holiday package" width="800" height="600" loading="lazy" onerror="this.remove()"><span class="dur">6N / 7D</span></div>
+  <div class="body"><h3>Shimla & Manali</h3>
+  <div class="route2"><span class="rc"><b>Shimla</b><small>3 nights</small></span><i class="ar">→</i><span class="rc"><b>Manali</b><small>3 nights</small></span></div>
+  <ul class="hl"><li>Shimla sightseeing</li><li>Solang Valley adventure</li></ul>
   <div class="foot"><div class="price"><small>Starting from</small><b>₹ XX,XXX</b><small>per person*</small></div>
-  <div class="btns"><button type="button" class="btn btn-line" data-toggle aria-expanded="false" aria-controls="more-mnl-hm"><span class="t">View details</span> <i>▾</i></button>
-  <a href="#quote" class="btn btn-orange" data-package="Manali Honeymoon (5N/6D)">Get quote</a></div></div>
-  <div class="more" id="more-mnl-hm"><div class="more-in">
-    <h4 class="mh">Day-by-day itinerary · 5N / 6D</h4>
-    <ol class="tl"><li><span class="dn">Day 1</span><h4>Arrive in Manali</h4><p>Pick-up from Bhuntar airport or Kullu and drive to Manali. Check in and unwind. Evening at Mall Road and Hadimba Temple.</p></li><li><span class="dn">Day 2</span><h4>Solang Valley adventure</h4><p>Solang Valley for snow activities and skiing in winter, or paragliding, ropeway and zorbing in warmer months.</p></li><li><span class="dn">Day 3</span><h4>Atal Tunnel & Sissu</h4><p>Drive through the Atal Tunnel to the Lahaul valley and Sissu. Subject to road, tunnel and weather conditions; Rohtang Pass is permit-based and seasonal.</p></li><li><span class="dn">Day 4</span><h4>Manali local sightseeing</h4><p>Hadimba Temple, Manu Temple, Vashisht hot springs and Old Manali's riverside cafés. Evening: candlelight dinner for two.</p></li><li><span class="dn">Day 5</span><h4>Naggar Castle & Jogini Falls</h4><p>Visit Naggar Castle and the Roerich Gallery, then a short walk to Jogini Falls.</p></li><li><span class="dn">Day 6</span><h4>Departure</h4><p>Free morning for a walk through Old Manali's cafés. Breakfast, check-out and drop for your onward journey.</p></li></ol>
-    <div class="two inc2"><div class="panel"><h4>Included</h4><ul><li>5 nights' accommodation with daily breakfast</li><li>Private cab for transfers and sightseeing</li><li>Sightseeing and tours as per itinerary</li><li>Local support during your trip</li></ul></div><div class="panel no"><h4>Not included</h4><ul><li>Travel to Chandigarh / Delhi</li><li>Visa and travel insurance (we can assist)</li><li>Lunch and dinner unless mentioned</li><li>Optional activities and park / entry fees marked optional</li></ul></div></div>
-    <p class="mnote">Hotels, activities and timings are tailored to your dates and group — this is a sample plan.</p>
-  </div></div></div></article><article class="pkg reveal" style="--d:0.24s" id="pkg-shl-mnl"><div class="ph " data-name="pkg-shl-mnl.jpg" style="--a:#b8cdea;--b:#5d7fb5;"><img src="images/pkg-shl-mnl.jpg" alt="Shimla & Manali holiday package" width="800" height="600" loading="lazy" onerror="this.remove()"><span class="dur">6N / 7D</span></div>
-  <div class="body"><h3>Shimla & Manali</h3><p class="route">Shimla 3N → Manali 3N</p>
-  <div class="inc"><span>2 Hotels</span><span>Daily breakfast</span><span>Private cab</span><span>Sightseeing</span></div>
-  <div class="foot"><div class="price"><small>Starting from</small><b>₹ XX,XXX</b><small>per person*</small></div>
-  <div class="btns"><button type="button" class="btn btn-line" data-toggle aria-expanded="false" aria-controls="more-shl-mnl"><span class="t">View details</span> <i>▾</i></button>
-  <a href="#quote" class="btn btn-orange" data-package="Shimla & Manali (6N/7D)">Get quote</a></div></div>
-  <div class="more" id="more-shl-mnl"><div class="more-in">
-    <h4 class="mh">Day-by-day itinerary · 6N / 7D</h4>
-    <ol class="tl"><li><span class="dn">Day 1</span><h4>Arrive in Shimla</h4><p>Pick-up from Chandigarh and drive to Shimla (approx. 3.5 hrs). Check in and take an evening walk on Mall Road and the Ridge. (Optional: arrive by the UNESCO Kalka–Shimla toy train, subject to availability.)</p></li><li><span class="dn">Day 2</span><h4>Shimla sightseeing</h4><p>Jakhu Temple, Christ Church on the Ridge, Mall Road and the Viceregal Lodge (Indian Institute of Advanced Study).</p></li><li><span class="dn">Day 3</span><h4>Kufri & Mashobra</h4><p>Day trip to Kufri for viewpoints, pony rides and the Himalayan Nature Park (snow activities in winter), then the cedar forests of Mashobra.</p></li><li><span class="dn">Day 4</span><h4>Shimla → Manali</h4><p>Free morning for last-minute shopping on Mall Road. Check out and drive to Manali (approx. 7–8 hrs), with stops at Pandoh Dam and Beas river viewpoints. Check in and unwind. Evening at Mall Road and Hadimba Temple.</p></li><li><span class="dn">Day 5</span><h4>Solang Valley adventure</h4><p>Solang Valley for snow activities and skiing in winter, or paragliding, ropeway and zorbing in warmer months.</p></li><li><span class="dn">Day 6</span><h4>Atal Tunnel & Sissu</h4><p>Drive through the Atal Tunnel to the Lahaul valley and Sissu. Subject to road, tunnel and weather conditions; Rohtang Pass is permit-based and seasonal.</p></li><li><span class="dn">Day 7</span><h4>Departure</h4><p>Free morning for a walk through Old Manali's cafés. Breakfast, check-out and drop for your onward journey.</p></li></ol>
-    <div class="two inc2"><div class="panel"><h4>Included</h4><ul><li>6 nights' accommodation with daily breakfast</li><li>Private cab for transfers and sightseeing</li><li>Sightseeing and tours as per itinerary</li><li>Local support during your trip</li></ul></div><div class="panel no"><h4>Not included</h4><ul><li>Travel to Chandigarh / Delhi</li><li>Visa and travel insurance (we can assist)</li><li>Lunch and dinner unless mentioned</li><li>Optional activities and park / entry fees marked optional</li></ul></div></div>
-    <p class="mnote">Hotels, activities and timings are tailored to your dates and group — this is a sample plan.</p>
-  </div></div></div></article></div>
+  <a href="#quote" class="btn btn-orange" data-quote data-package="Shimla & Manali (6N/7D)" data-cities="Shimla,Manali">Get quote</a></div></div></article></div>
   <p class="center" style="margin-top:22px;color:var(--mute);font-size:.8rem">*Sample packages — final prices and inclusions are confirmed in your quote.</p>
 </div></section>
 <section class="section"><div class="container">
   <div class="section-head reveal"><span class="eyebrow">Highlights</span><h2>Why visit Manali</h2><p class="lede">The experiences travellers love most — all easy to build into your trip.</p></div>
-  <div class="grid d3"><div class="feat img reveal" style="--d:0s"><div class="ph " data-name="manali-spot-1.jpg" style="--a:#cfe6fb;--b:#4a86c8;"><img src="images/manali-spot-1.jpg" alt="Solang Valley" width="800" height="600" loading="lazy" onerror="this.remove()"></div><div class="t"><h3>Solang Valley</h3><p>Skiing in winter; paragliding, ropeway and zorbing in warmer months.</p></div></div><div class="feat img reveal" style="--d:0.08s"><div class="ph " data-name="manali-spot-2.jpg" style="--a:#cfe6fb;--b:#4a86c8;"><img src="images/manali-spot-2.jpg" alt="Atal Tunnel & Sissu" width="800" height="600" loading="lazy" onerror="this.remove()"></div><div class="t"><h3>Atal Tunnel & Sissu</h3><p>Drive through the world's highest tunnel to the Lahaul valley.</p></div></div><div class="feat img reveal" style="--d:0.16s"><div class="ph " data-name="manali-spot-3.jpg" style="--a:#cfe6fb;--b:#4a86c8;"><img src="images/manali-spot-3.jpg" alt="Rohtang Pass" width="800" height="600" loading="lazy" onerror="this.remove()"></div><div class="t"><h3>Rohtang Pass</h3><p>High-altitude snow views (seasonal; permit-based and weather-dependent).</p></div></div><div class="feat img reveal" style="--d:0.24s"><div class="ph " data-name="manali-spot-4.jpg" style="--a:#cfe6fb;--b:#4a86c8;"><img src="images/manali-spot-4.jpg" alt="Hadimba Temple" width="800" height="600" loading="lazy" onerror="this.remove()"></div><div class="t"><h3>Hadimba Temple</h3><p>A wooden temple set inside a quiet deodar forest.</p></div></div><div class="feat img reveal" style="--d:0s"><div class="ph " data-name="manali-spot-5.jpg" style="--a:#cfe6fb;--b:#4a86c8;"><img src="images/manali-spot-5.jpg" alt="Old Manali" width="800" height="600" loading="lazy" onerror="this.remove()"></div><div class="t"><h3>Old Manali</h3><p>Riverside cafés, bohemian lanes and live music.</p></div></div><div class="feat img reveal" style="--d:0.08s"><div class="ph " data-name="manali-spot-6.jpg" style="--a:#cfe6fb;--b:#4a86c8;"><img src="images/manali-spot-6.jpg" alt="Vashisht hot springs" width="800" height="600" loading="lazy" onerror="this.remove()"></div><div class="t"><h3>Vashisht hot springs</h3><p>A village with natural sulphur springs and mountain views.</p></div></div></div></div></section>
+  <div class="grid d3"><div class="feat img reveal" style="--d:0s"><div class="ph " data-name="manali-spot-1.jpg" style="--a:#cfe6fb;--b:#4a86c8;"><img src="images/manali-spot-1.jpg" alt="Solang Valley" width="800" height="600" loading="lazy" onerror="this.remove()"></div><div class="t"><h3>Solang Valley</h3><p>Skiing in winter; paragliding, ropeway and zorbing in warmer months.</p></div></div><div class="feat img reveal" style="--d:0.08s"><div class="ph " data-name="manali-spot-2.jpg" style="--a:#cfe6fb;--b:#4a86c8;"><img src="images/manali-spot-2.jpg" alt="Atal Tunnel & Sissu" width="800" height="600" loading="lazy" onerror="this.remove()"></div><div class="t"><h3>Atal Tunnel & Sissu</h3><p>Drive through the world's highest tunnel to the Lahaul valley.</p></div></div><div class="feat img reveal" style="--d:0.16s"><div class="ph " data-name="manali-spot-3.jpg" style="--a:#cfe6fb;--b:#4a86c8;"><img src="images/manali-spot-3.jpg" alt="Rohtang Pass" width="800" height="600" loading="lazy" onerror="this.remove()"></div><div class="t"><h3>Rohtang Pass</h3><p>High-altitude snow views (seasonal; permit-based and weather-dependent).</p></div></div><div class="feat img reveal" style="--d:0.24s"><div class="ph " data-name="manali-spot-4.jpg" style="--a:#cfe6fb;--b:#4a86c8;"><img src="images/manali-spot-4.jpg" alt="Hadimba Temple" width="800" height="600" loading="lazy" onerror="this.remove()"></div><div class="t"><h3>Hadimba Temple</h3><p>A wooden temple set inside a quiet deodar forest.</p></div></div><div class="feat img reveal" style="--d:0s"><div class="ph " data-name="manali-spot-5.jpg" style="--a:#cfe6fb;--b:#4a86c8;"><img src="images/manali-spot-5.jpg" alt="Old Manali" width="800" height="600" loading="lazy" onerror="this.remove()"></div><div class="t"><h3>Old Manali</h3><p>Riverside cafés, bohemian lanes and live music.</p></div></div><div class="feat img reveal" style="--d:0.08s"><div class="ph " data-name="manali-spot-6.jpg" style="--a:#cfe6fb;--b:#4a86c8;"><img src="images/manali-spot-6.jpg" alt="Beas River Valley" width="800" height="600" loading="lazy" onerror="this.remove()"></div><div class="t"><h3>Beas River Valley</h3><p>Riverside drives and picnic spots along the Beas, with rafting in season.</p></div></div></div></div></section>
 <section class="section alt" id="itinerary"><div class="container">
   <div class="section-head center reveal"><span class="eyebrow">Sample itinerary</span><h2>5 days in Manali</h2><p class="lede">A starting point — we tailor every day to your dates, pace and budget.</p></div>
   <div class="itin"><div class="day reveal"><div class="box"><small>Day 1</small><h3>Arrive in Manali</h3><p>Check in, rest and explore Mall Road and Hadimba Temple.</p></div></div><div class="day reveal"><div class="box"><small>Day 2</small><h3>Solang Valley</h3><p>Adventure day — snow activities or paragliding depending on season.</p></div></div><div class="day reveal"><div class="box"><small>Day 3</small><h3>Atal Tunnel & Sissu</h3><p>Scenic drive across the tunnel to the snow-lined Lahaul valley.</p></div></div><div class="day reveal"><div class="box"><small>Day 4</small><h3>Old Manali & Vashisht</h3><p>Cafés, hot springs and a relaxed evening by the river.</p></div></div><div class="day reveal"><div class="box"><small>Day 5</small><h3>Departure</h3><p>Breakfast and onward journey.</p></div></div></div></div></section>
@@ -139,15 +109,14 @@
     <input type="hidden" name="package" value="">
     <div class="pkgsel"><button type="button" aria-label="Remove package">×</button></div>
     <div><label>Name <b>*</b><input name="name" required autocomplete="name" placeholder="Your full name"></label></div>
-    <div><label>Mobile number <b>*</b><span class="pre"><span>+91</span><input name="phone" type="tel" inputmode="numeric" required autocomplete="tel-national" placeholder="10-digit number"></span></label></div>
-    <div class="full"><label>Email <small style="font-weight:400;color:var(--mute)">(optional)</small><input name="email" type="email" autocomplete="email" placeholder="you@email.com"></label></div>
-    <div class="full"><label>Destination<select name="region"><option value="">Select destination</option><option>Thailand</option><option>Himachal Pradesh</option></select></label></div>
-    <div class="full"><label>Cities <small style="font-weight:400;color:var(--mute)">(select one or more)</small></label><div class="chips"></div></div>
-    <div><label>Travel date<input name="date" type="date"></label></div>
+    <div><label>Mobile <b>*</b><span class="pre"><span>+91</span><input name="phone" type="tel" inputmode="numeric" required autocomplete="tel-national" placeholder="10-digit number"></span></label></div>
+    <div><label>Destination<select name="region"><option value="">Select</option><option>Thailand</option><option>Himachal Pradesh</option></select></label></div>
     <div><label>Travellers<input name="pax" type="number" min="1" max="50" value="2"></label></div>
-    <div class="full"><label>Notes<textarea name="msg" rows="2" placeholder="Honeymoon, kids, budget, hotel type…"></textarea></label></div>
+    <div class="full"><label>Cities <small>(select one or more)</small></label><div class="chips"></div></div>
+    <div><label>Travel date<input name="date" type="date"></label></div>
+    <div><label>Email <small>(optional)</small><input name="email" type="email" autocomplete="email" placeholder="you@email.com"></label></div>
+    <div class="full"><label>Notes <small>(optional)</small><textarea name="msg" rows="1" placeholder="Honeymoon, kids, budget…"></textarea></label></div>
     <div class="full"><button class="btn btn-orange btn-w" type="submit">Get my free quote →</button></div>
-    <p class="fine">🔒 We only use your details to plan your trip.</p>
   </form>
   <div class="okbox"><div class="tick">✓</div><h3>Thank you!</h3><p class="sub">We've received your enquiry. Our travel expert will contact you shortly.</p></div>
 </div></div>
@@ -161,7 +130,24 @@
   </div>
   <div class="copy"><span>© 2026 Goinggly. All rights reserved.</span><span>Prices and inclusions are confirmed in your written quote.</span></div>
 </div></footer>
-<div class="fabs"><a class="fab" style="background:#25d366" href="#" data-wa aria-label="WhatsApp">💬</a><a class="fab q" href="#quote" aria-label="Get free quote">✈</a></div>
-<script src="main.js?v=mvc1pp5k" defer></script>
+<dialog class="qmodal" id="quote-modal"><button type="button" class="qx x" aria-label="Close">×</button><div class="qcard">
+  <div class="head"><h3>Get a free quote</h3><p class="sub">Takes less than a minute.</p></div>
+  <form class="qform" data-enquiry novalidate data-region="" data-cities="">
+    <input type="hidden" name="package" value="">
+    <div class="pkgsel"><button type="button" aria-label="Remove package">×</button></div>
+    <div><label>Name <b>*</b><input name="name" required autocomplete="name" placeholder="Your full name"></label></div>
+    <div><label>Mobile <b>*</b><span class="pre"><span>+91</span><input name="phone" type="tel" inputmode="numeric" required autocomplete="tel-national" placeholder="10-digit number"></span></label></div>
+    <div><label>Destination<select name="region"><option value="" selected>Select</option><option>Thailand</option><option>Himachal Pradesh</option></select></label></div>
+    <div><label>Travellers<input name="pax" type="number" min="1" max="50" value="2"></label></div>
+    <div class="full"><label>Cities <small>(select one or more)</small></label><div class="chips"></div></div>
+    <div><label>Travel date<input name="date" type="date"></label></div>
+    <div><label>Email <small>(optional)</small><input name="email" type="email" autocomplete="email" placeholder="you@email.com"></label></div>
+    <div class="full"><label>Notes <small>(optional)</small><textarea name="msg" rows="1" placeholder="Honeymoon, kids, budget…"></textarea></label></div>
+    <div class="full"><button class="btn btn-orange btn-w" type="submit">Get my free quote →</button></div>
+  </form>
+  <div class="okbox"><div class="tick">✓</div><h3>Thank you!</h3><p class="sub">We've received your enquiry. Our travel expert will contact you shortly.</p><button type="button" class="btn btn-line qx">Close</button></div>
+</div></dialog>
+<div class="fabs"><a class="fab" style="background:#25d366" href="#" data-wa aria-label="WhatsApp">💬</a><a class="fab q" href="#quote" data-quote aria-label="Get free quote">✈</a></div>
+<script src="main.js?v=mvc9wj5f" defer></script>
 </body>
 </html>

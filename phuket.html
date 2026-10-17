@@ -18,7 +18,7 @@
 <script>document.documentElement.classList.add('js')</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=mvc1pp5k">
+<link rel="stylesheet" href="styles.css?v=mvc9wj5f">
 </head>
 <body>
 <div class="topbar"><div class="container"><span>✈ Thailand &amp; Himachal holiday specialists</span><span class="hide-m">Free custom quote · <a href="mailto:info@goinggly.in">info@goinggly.in</a></span></div></div>
@@ -31,7 +31,7 @@
       <div class="dd-menu"><small>Thailand</small><a href="bangkok.html">Bangkok</a><a href="pattaya.html">Pattaya</a><a href="phuket.html">Phuket</a><a href="krabi.html">Krabi</a><small>Himachal Pradesh</small><a href="shimla.html">Shimla</a><a href="manali.html">Manali</a></div></div>
     <a href="about.html">About</a>
     <a href="#quote">Contact</a>
-    <a href="#quote" class="cta">Get free quote</a>
+    <a href="#quote" class="cta" data-quote>Get free quote</a>
   </nav>
 </div></header>
 <section class="hero"><div class="ph " data-name="phuket-hero.jpg" style="--a:#7fe0e0;--b:#1b8fb5;"><img src="images/phuket-hero.jpg" alt="Phuket, Thailand" width="1600" height="900" fetchpriority="high" onerror="this.remove()"></div>
@@ -46,15 +46,14 @@
     <input type="hidden" name="package" value="">
     <div class="pkgsel"><button type="button" aria-label="Remove package">×</button></div>
     <div><label>Name <b>*</b><input name="name" required autocomplete="name" placeholder="Your full name"></label></div>
-    <div><label>Mobile number <b>*</b><span class="pre"><span>+91</span><input name="phone" type="tel" inputmode="numeric" required autocomplete="tel-national" placeholder="10-digit number"></span></label></div>
-    <div class="full"><label>Email <small style="font-weight:400;color:var(--mute)">(optional)</small><input name="email" type="email" autocomplete="email" placeholder="you@email.com"></label></div>
-    <div class="full"><label>Destination<select name="region"><option value="">Select destination</option><option>Thailand</option><option>Himachal Pradesh</option></select></label></div>
-    <div class="full"><label>Cities <small style="font-weight:400;color:var(--mute)">(select one or more)</small></label><div class="chips"></div></div>
-    <div><label>Travel date<input name="date" type="date"></label></div>
+    <div><label>Mobile <b>*</b><span class="pre"><span>+91</span><input name="phone" type="tel" inputmode="numeric" required autocomplete="tel-national" placeholder="10-digit number"></span></label></div>
+    <div><label>Destination<select name="region"><option value="">Select</option><option>Thailand</option><option>Himachal Pradesh</option></select></label></div>
     <div><label>Travellers<input name="pax" type="number" min="1" max="50" value="2"></label></div>
-    <div class="full"><label>Notes<textarea name="msg" rows="2" placeholder="Honeymoon, kids, budget, hotel type…"></textarea></label></div>
+    <div class="full"><label>Cities <small>(select one or more)</small></label><div class="chips"></div></div>
+    <div><label>Travel date<input name="date" type="date"></label></div>
+    <div><label>Email <small>(optional)</small><input name="email" type="email" autocomplete="email" placeholder="you@email.com"></label></div>
+    <div class="full"><label>Notes <small>(optional)</small><textarea name="msg" rows="1" placeholder="Honeymoon, kids, budget…"></textarea></label></div>
     <div class="full"><button class="btn btn-orange btn-w" type="submit">Get my free quote →</button></div>
-    <p class="fine">🔒 We only use your details to plan your trip.</p>
   </form>
   <div class="okbox"><div class="tick">✓</div><h3>Thank you!</h3><p class="sub">We've received your enquiry. Our travel expert will contact you shortly.</p></div>
 </div>
@@ -62,62 +61,22 @@
 <div class="facts"><div class="container"><div class="row"><div class="f"><small>Best time</small><b>Nov – Apr</b></div><div class="f"><small>Ideal stay</small><b>4 – 5 nights</b></div><div class="f"><small>Perfect for</small><b>Honeymoons · Families · Friends</b></div><div class="f"><small>Getting there</small><b>Direct flights from select Indian cities</b></div></div></div></div>
 <section class="section alt" id="packages"><div class="container">
   <div class="section-head center reveal"><span class="eyebrow">Suggested packages</span><h2>Phuket holiday packages</h2><p class="lede">Pick a starting point — we'll customise hotels, dates and activities for you.</p></div>
-  <div class="grid d4 pk-grid"><article class="pkg reveal" style="--d:0s" id="pkg-hkt-lux"><div class="ph " data-name="pkg-hkt-lux.jpg" style="--a:#7fe0e0;--b:#1b8fb5;"><img src="images/pkg-hkt-lux.jpg" alt="Phuket Luxury Retreat holiday package" width="800" height="600" loading="lazy" onerror="this.remove()"><span class="dur">5N / 6D</span></div>
-  <div class="body"><h3>Phuket Luxury Retreat</h3><p class="route">Phuket 5N</p>
-  <div class="inc"><span>5★ resort</span><span>Daily breakfast</span><span>Private transfers</span><span>Spa session</span></div>
+  <div class="grid d3 pk-grid"><article class="pkg reveal" style="--d:0s" id="pkg-hkt-kbi"><div class="ph " data-name="pkg-hkt-kbi.jpg" style="--a:#7fe0e0;--b:#1b8fb5;"><img src="images/pkg-hkt-kbi.jpg" alt="Phuket & Krabi Combo holiday package" width="800" height="600" loading="lazy" onerror="this.remove()"><span class="dur">6N / 7D</span></div>
+  <div class="body"><h3>Phuket & Krabi Combo</h3>
+  <div class="route2"><span class="rc"><b>Phuket</b><small>3 nights</small></span><i class="ar">→</i><span class="rc"><b>Krabi</b><small>3 nights</small></span></div>
+  <ul class="hl"><li>Phi Phi Islands by speedboat</li><li>Four Islands tour by longtail</li></ul>
   <div class="foot"><div class="price"><small>Starting from</small><b>₹ XX,XXX</b><small>per person*</small></div>
-  <div class="btns"><button type="button" class="btn btn-line" data-toggle aria-expanded="false" aria-controls="more-hkt-lux"><span class="t">View details</span> <i>▾</i></button>
-  <a href="#quote" class="btn btn-orange" data-package="Phuket Luxury Retreat (5N/6D)">Get quote</a></div></div>
-  <div class="more" id="more-hkt-lux"><div class="more-in">
-    <h4 class="mh">Day-by-day itinerary · 5N / 6D</h4>
-    <ol class="tl"><li><span class="dn">Day 1</span><h4>Arrive in Phuket</h4><p>Arrive at Phuket airport and take a private transfer to your 5★ resort. Check in and catch the sunset at Kata or Karon beach.</p></li><li><span class="dn">Day 2</span><h4>Private speedboat to Phi Phi & Khai Islands</h4><p>Skip the crowds with a private speedboat — snorkelling, quiet beaches and a seaside lunch. The national park fee (about 400 THB) is paid locally.</p></li><li><span class="dn">Day 3</span><h4>Private longtail through Phang Nga Bay</h4><p>A private boat through Phang Nga Bay with sea-canoeing, James Bond Island and a relaxed lunch.</p></li><li><span class="dn">Day 4</span><h4>Island sights, spa & sunset dinner</h4><p>Big Buddha and Old Phuket Town with your private guide, a Thai spa session, then a beachfront sunset dinner. Evening: romantic beachfront dinner at your resort.</p></li><li><span class="dn">Day 5</span><h4>Leisure at your resort</h4><p>A free day to enjoy the resort pool and beach, or add a sunset catamaran cruise (optional).</p></li><li><span class="dn">Day 6</span><h4>Departure</h4><p>Enjoy a relaxed morning at the beach before check-out. Breakfast, check-out and airport transfer for your flight home.</p></li></ol>
-    <div class="two inc2"><div class="panel"><h4>Included</h4><ul><li>5 nights' accommodation with daily breakfast</li><li>Airport and inter-city transfers</li><li>Sightseeing and tours as per itinerary</li><li>Local support during your trip</li><li>5★ resort stay, private transfers and a spa session</li></ul></div><div class="panel no"><h4>Not included</h4><ul><li>International and domestic flights</li><li>Visa and travel insurance (we can assist)</li><li>Lunch and dinner unless mentioned</li><li>Optional activities and park / entry fees marked optional</li></ul></div></div>
-    <p class="mnote">Hotels, activities and timings are tailored to your dates and group — this is a sample plan.</p>
-  </div></div></div></article><article class="pkg reveal" style="--d:0.08s" id="pkg-hkt"><div class="ph " data-name="pkg-hkt.jpg" style="--a:#7fe0e0;--b:#1b8fb5;"><img src="images/pkg-hkt.jpg" alt="Phuket Escapade holiday package" width="800" height="600" loading="lazy" onerror="this.remove()"><span class="dur">4N / 5D</span></div>
-  <div class="body"><h3>Phuket Escapade</h3><p class="route">Phuket 4N</p>
-  <div class="inc"><span>Hotels</span><span>Daily breakfast</span><span>Airport transfers</span><span>Sightseeing</span></div>
+  <a href="#quote" class="btn btn-orange" data-quote data-package="Phuket & Krabi Combo (6N/7D)" data-cities="Phuket,Krabi">Get quote</a></div></div></article><article class="pkg reveal" style="--d:0.08s" id="pkg-bkk-hkt"><div class="ph " data-name="pkg-bkk-hkt.jpg" style="--a:#f6b27a;--b:#c2587a;"><img src="images/pkg-bkk-hkt.jpg" alt="Bangkok & Phuket Combo holiday package" width="800" height="600" loading="lazy" onerror="this.remove()"><span class="dur">6N / 7D</span></div>
+  <div class="body"><h3>Bangkok & Phuket Combo</h3>
+  <div class="route2"><span class="rc"><b>Bangkok</b><small>2 nights</small></span><i class="ar">→</i><span class="rc"><b>Phuket</b><small>4 nights</small></span></div>
+  <ul class="hl"><li>Grand Palace, Wat Pho & Wat Arun</li><li>Phi Phi Islands by speedboat</li></ul>
   <div class="foot"><div class="price"><small>Starting from</small><b>₹ XX,XXX</b><small>per person*</small></div>
-  <div class="btns"><button type="button" class="btn btn-line" data-toggle aria-expanded="false" aria-controls="more-hkt"><span class="t">View details</span> <i>▾</i></button>
-  <a href="#quote" class="btn btn-orange" data-package="Phuket Escapade (4N/5D)">Get quote</a></div></div>
-  <div class="more" id="more-hkt"><div class="more-in">
-    <h4 class="mh">Day-by-day itinerary · 4N / 5D</h4>
-    <ol class="tl"><li><span class="dn">Day 1</span><h4>Arrive in Phuket</h4><p>Arrive at Phuket airport and transfer to your hotel. Check in and catch the sunset at Kata or Karon beach.</p></li><li><span class="dn">Day 2</span><h4>Phi Phi Islands by speedboat</h4><p>Full-day speedboat trip to Phi Phi with snorkelling, beaches and lunch on the island. Maya Bay access depends on current park rules; the national park fee (about 400 THB) is paid locally.</p></li><li><span class="dn">Day 3</span><h4>Phang Nga Bay & James Bond Island</h4><p>Cruise through the limestone towers of Phang Nga Bay, sea-canoe into caves and visit James Bond Island and a floating village.</p></li><li><span class="dn">Day 4</span><h4>Phuket city tour & Promthep Cape sunset</h4><p>Big Buddha, Wat Chalong and Old Phuket Town's Sino-Portuguese streets, then sunset at Promthep Cape.</p></li><li><span class="dn">Day 5</span><h4>Departure</h4><p>Enjoy a relaxed morning at the beach before check-out. Breakfast, check-out and airport transfer for your flight home.</p></li></ol>
-    <div class="two inc2"><div class="panel"><h4>Included</h4><ul><li>4 nights' accommodation with daily breakfast</li><li>Airport and inter-city transfers</li><li>Sightseeing and tours as per itinerary</li><li>Local support during your trip</li></ul></div><div class="panel no"><h4>Not included</h4><ul><li>International and domestic flights</li><li>Visa and travel insurance (we can assist)</li><li>Lunch and dinner unless mentioned</li><li>Optional activities and park / entry fees marked optional</li></ul></div></div>
-    <p class="mnote">Hotels, activities and timings are tailored to your dates and group — this is a sample plan.</p>
-  </div></div></div></article><article class="pkg reveal" style="--d:0.16s" id="pkg-hkt-kbi"><div class="ph " data-name="pkg-hkt-kbi.jpg" style="--a:#7fe0e0;--b:#1b8fb5;"><img src="images/pkg-hkt-kbi.jpg" alt="Phuket & Krabi Combo holiday package" width="800" height="600" loading="lazy" onerror="this.remove()"><span class="dur">6N / 7D</span></div>
-  <div class="body"><h3>Phuket & Krabi Combo</h3><p class="route">Phuket 3N → Krabi 3N</p>
-  <div class="inc"><span>Hotels</span><span>Daily breakfast</span><span>Airport transfers</span><span>Sightseeing</span></div>
+  <a href="#quote" class="btn btn-orange" data-quote data-package="Bangkok & Phuket Combo (6N/7D)" data-cities="Bangkok,Phuket">Get quote</a></div></div></article><article class="pkg reveal" style="--d:0.16s" id="pkg-all4"><div class="ph " data-name="pkg-all4.jpg" style="--a:#8fd0f7;--b:#2d7fd0;"><img src="images/pkg-all4.jpg" alt="Thailand Grand Tour holiday package" width="800" height="600" loading="lazy" onerror="this.remove()"><span class="dur">9N / 10D</span></div>
+  <div class="body"><h3>Thailand Grand Tour</h3>
+  <div class="route2"><span class="rc"><b>Pattaya</b><small>2 nights</small></span><i class="ar">→</i><span class="rc"><b>Bangkok</b><small>2 nights</small></span><i class="ar">→</i><span class="rc"><b>Phuket</b><small>3 nights</small></span><i class="ar">→</i><span class="rc"><b>Krabi</b><small>2 nights</small></span></div>
+  <ul class="hl"><li>Coral Island (Koh Larn) by speedboat</li><li>Grand Palace, Wat Pho & Wat Arun</li><li>Phi Phi Islands by speedboat</li><li>Four Islands tour by longtail</li></ul>
   <div class="foot"><div class="price"><small>Starting from</small><b>₹ XX,XXX</b><small>per person*</small></div>
-  <div class="btns"><button type="button" class="btn btn-line" data-toggle aria-expanded="false" aria-controls="more-hkt-kbi"><span class="t">View details</span> <i>▾</i></button>
-  <a href="#quote" class="btn btn-orange" data-package="Phuket & Krabi Combo (6N/7D)">Get quote</a></div></div>
-  <div class="more" id="more-hkt-kbi"><div class="more-in">
-    <h4 class="mh">Day-by-day itinerary · 6N / 7D</h4>
-    <ol class="tl"><li><span class="dn">Day 1</span><h4>Arrive in Phuket</h4><p>Arrive at Phuket airport and transfer to your hotel. Check in and catch the sunset at Kata or Karon beach.</p></li><li><span class="dn">Day 2</span><h4>Phi Phi Islands by speedboat</h4><p>Full-day speedboat trip to Phi Phi with snorkelling, beaches and lunch on the island. Maya Bay access depends on current park rules; the national park fee (about 400 THB) is paid locally.</p></li><li><span class="dn">Day 3</span><h4>Phang Nga Bay & James Bond Island</h4><p>Cruise through the limestone towers of Phang Nga Bay, sea-canoe into caves and visit James Bond Island and a floating village.</p></li><li><span class="dn">Day 4</span><h4>Phuket → Krabi</h4><p>Enjoy a relaxed morning at the beach before check-out. Check out and transfer by road to Krabi (approx. 2.5–3 hrs). Check in. Sunset at Ao Nang beach and an evening stroll through the night market.</p></li><li><span class="dn">Day 5</span><h4>Four Islands tour by longtail</h4><p>Longtail and speedboat day hopping between Koh Poda, Chicken Island, Koh Tup and Phra Nang Cave Beach with snorkelling and a beach lunch.</p></li><li><span class="dn">Day 6</span><h4>Emerald Pool, Hot Springs & Tiger Cave Temple</h4><p>Swim in the jungle's blue-green Emerald Pool, soak in the hot springs and climb (optional) to Tiger Cave Temple for sweeping views.</p></li><li><span class="dn">Day 7</span><h4>Departure</h4><p>Free morning at the beach or pool. Breakfast, check-out and airport transfer for your flight home.</p></li></ol>
-    <div class="two inc2"><div class="panel"><h4>Included</h4><ul><li>6 nights' accommodation with daily breakfast</li><li>Airport and inter-city transfers</li><li>Sightseeing and tours as per itinerary</li><li>Local support during your trip</li></ul></div><div class="panel no"><h4>Not included</h4><ul><li>International and domestic flights</li><li>Visa and travel insurance (we can assist)</li><li>Lunch and dinner unless mentioned</li><li>Optional activities and park / entry fees marked optional</li></ul></div></div>
-    <p class="mnote">Hotels, activities and timings are tailored to your dates and group — this is a sample plan.</p>
-  </div></div></div></article><article class="pkg reveal" style="--d:0.24s" id="pkg-bkk-hkt"><div class="ph " data-name="pkg-bkk-hkt.jpg" style="--a:#f6b27a;--b:#c2587a;"><img src="images/pkg-bkk-hkt.jpg" alt="Bangkok & Phuket Combo holiday package" width="800" height="600" loading="lazy" onerror="this.remove()"><span class="dur">6N / 7D</span></div>
-  <div class="body"><h3>Bangkok & Phuket Combo</h3><p class="route">Bangkok 2N → Phuket 4N</p>
-  <div class="inc"><span>Hotels</span><span>Daily breakfast</span><span>Airport transfers</span><span>Sightseeing</span></div>
-  <div class="foot"><div class="price"><small>Starting from</small><b>₹ XX,XXX</b><small>per person*</small></div>
-  <div class="btns"><button type="button" class="btn btn-line" data-toggle aria-expanded="false" aria-controls="more-bkk-hkt"><span class="t">View details</span> <i>▾</i></button>
-  <a href="#quote" class="btn btn-orange" data-package="Bangkok & Phuket Combo (6N/7D)">Get quote</a></div></div>
-  <div class="more" id="more-bkk-hkt"><div class="more-in">
-    <h4 class="mh">Day-by-day itinerary · 6N / 7D</h4>
-    <ol class="tl"><li><span class="dn">Day 1</span><h4>Arrive in Bangkok</h4><p>Arrive at Bangkok airport, meet our representative and transfer to your hotel. Evening is free — try the riverside Asiatique night bazaar or Chinatown street food (optional).</p></li><li><span class="dn">Day 2</span><h4>Grand Palace, Wat Pho & Wat Arun</h4><p>Explore the Grand Palace and the giant Reclining Buddha at Wat Pho, then cross the river to Wat Arun. Evening street-food trail in Yaowarat (Chinatown). Dress modestly — shoulders and knees covered at temples.</p></li><li><span class="dn">Day 3</span><h4>Bangkok → Phuket</h4><p>Enjoy a free morning for last-minute shopping or a Thai massage. Transfer to Bangkok airport for your flight to Phuket (approx. 1 hr 25 min). Check in and catch the sunset at Kata or Karon beach.</p></li><li><span class="dn">Day 4</span><h4>Phi Phi Islands by speedboat</h4><p>Full-day speedboat trip to Phi Phi with snorkelling, beaches and lunch on the island. Maya Bay access depends on current park rules; the national park fee (about 400 THB) is paid locally.</p></li><li><span class="dn">Day 5</span><h4>Phang Nga Bay & James Bond Island</h4><p>Cruise through the limestone towers of Phang Nga Bay, sea-canoe into caves and visit James Bond Island and a floating village.</p></li><li><span class="dn">Day 6</span><h4>Phuket city tour & Promthep Cape sunset</h4><p>Big Buddha, Wat Chalong and Old Phuket Town's Sino-Portuguese streets, then sunset at Promthep Cape.</p></li><li><span class="dn">Day 7</span><h4>Departure</h4><p>Enjoy a relaxed morning at the beach before check-out. Breakfast, check-out and airport transfer for your flight home.</p></li></ol>
-    <div class="two inc2"><div class="panel"><h4>Included</h4><ul><li>6 nights' accommodation with daily breakfast</li><li>Airport and inter-city transfers</li><li>Sightseeing and tours as per itinerary</li><li>Local support during your trip</li></ul></div><div class="panel no"><h4>Not included</h4><ul><li>International and domestic flights</li><li>Visa and travel insurance (we can assist)</li><li>Lunch and dinner unless mentioned</li><li>Optional activities and park / entry fees marked optional</li></ul></div></div>
-    <p class="mnote">Hotels, activities and timings are tailored to your dates and group — this is a sample plan.</p>
-  </div></div></div></article><article class="pkg reveal" style="--d:0s" id="pkg-all4"><div class="ph " data-name="pkg-all4.jpg" style="--a:#8fd0f7;--b:#2d7fd0;"><img src="images/pkg-all4.jpg" alt="Thailand Grand Tour holiday package" width="800" height="600" loading="lazy" onerror="this.remove()"><span class="dur">9N / 10D</span></div>
-  <div class="body"><h3>Thailand Grand Tour</h3><p class="route">Pattaya 2N → Bangkok 2N → Phuket 3N → Krabi 2N</p>
-  <div class="inc"><span>Hotels</span><span>Daily breakfast</span><span>Airport transfers</span><span>Sightseeing</span></div>
-  <div class="foot"><div class="price"><small>Starting from</small><b>₹ XX,XXX</b><small>per person*</small></div>
-  <div class="btns"><button type="button" class="btn btn-line" data-toggle aria-expanded="false" aria-controls="more-all4"><span class="t">View details</span> <i>▾</i></button>
-  <a href="#quote" class="btn btn-orange" data-package="Thailand Grand Tour (9N/10D)">Get quote</a></div></div>
-  <div class="more" id="more-all4"><div class="more-in">
-    <h4 class="mh">Day-by-day itinerary · 9N / 10D</h4>
-    <ol class="tl"><li><span class="dn">Day 1</span><h4>Arrive Bangkok & drive to Pattaya</h4><p>Arrive at Bangkok airport and drive to Pattaya (approx. 2 hrs). Check in and unwind. Evening at Pattaya Beach Road; optionally catch the Alcazar cabaret show.</p></li><li><span class="dn">Day 2</span><h4>Coral Island (Koh Larn) by speedboat</h4><p>Speedboat to Coral Island for white-sand beaches, with optional parasailing, jet-ski and banana-boat rides. Buffet lunch on the island, back in Pattaya by evening.</p></li><li><span class="dn">Day 3</span><h4>Pattaya → Bangkok</h4><p>Enjoy a leisurely breakfast and a last stroll along the beach. Check out and drive to Bangkok (approx. 2 hrs). Evening is free — try the riverside Asiatique night bazaar or Chinatown street food (optional).</p></li><li><span class="dn">Day 4</span><h4>Grand Palace, Wat Pho & Wat Arun</h4><p>Explore the Grand Palace and the giant Reclining Buddha at Wat Pho, then cross the river to Wat Arun. Evening street-food trail in Yaowarat (Chinatown). Dress modestly — shoulders and knees covered at temples.</p></li><li><span class="dn">Day 5</span><h4>Bangkok → Phuket</h4><p>Enjoy a free morning for last-minute shopping or a Thai massage. Transfer to Bangkok airport for your flight to Phuket (approx. 1 hr 25 min). Check in and catch the sunset at Kata or Karon beach.</p></li><li><span class="dn">Day 6</span><h4>Phi Phi Islands by speedboat</h4><p>Full-day speedboat trip to Phi Phi with snorkelling, beaches and lunch on the island. Maya Bay access depends on current park rules; the national park fee (about 400 THB) is paid locally.</p></li><li><span class="dn">Day 7</span><h4>Phang Nga Bay & James Bond Island</h4><p>Cruise through the limestone towers of Phang Nga Bay, sea-canoe into caves and visit James Bond Island and a floating village.</p></li><li><span class="dn">Day 8</span><h4>Phuket → Krabi</h4><p>Enjoy a relaxed morning at the beach before check-out. Check out and transfer by road to Krabi (approx. 2.5–3 hrs). Check in. Sunset at Ao Nang beach and an evening stroll through the night market.</p></li><li><span class="dn">Day 9</span><h4>Four Islands tour by longtail</h4><p>Longtail and speedboat day hopping between Koh Poda, Chicken Island, Koh Tup and Phra Nang Cave Beach with snorkelling and a beach lunch.</p></li><li><span class="dn">Day 10</span><h4>Departure</h4><p>Free morning at the beach or pool. Breakfast, check-out and airport transfer for your flight home.</p></li></ol>
-    <div class="two inc2"><div class="panel"><h4>Included</h4><ul><li>9 nights' accommodation with daily breakfast</li><li>Airport and inter-city transfers</li><li>Sightseeing and tours as per itinerary</li><li>Local support during your trip</li></ul></div><div class="panel no"><h4>Not included</h4><ul><li>International and domestic flights</li><li>Visa and travel insurance (we can assist)</li><li>Lunch and dinner unless mentioned</li><li>Optional activities and park / entry fees marked optional</li></ul></div></div>
-    <p class="mnote">Hotels, activities and timings are tailored to your dates and group — this is a sample plan.</p>
-  </div></div></div></article></div>
+  <a href="#quote" class="btn btn-orange" data-quote data-package="Thailand Grand Tour (9N/10D)" data-cities="Pattaya,Bangkok,Phuket,Krabi">Get quote</a></div></div></article></div>
   <p class="center" style="margin-top:22px;color:var(--mute);font-size:.8rem">*Sample packages — final prices and inclusions are confirmed in your quote.</p>
 </div></section>
 <section class="section"><div class="container">
@@ -150,15 +109,14 @@
     <input type="hidden" name="package" value="">
     <div class="pkgsel"><button type="button" aria-label="Remove package">×</button></div>
     <div><label>Name <b>*</b><input name="name" required autocomplete="name" placeholder="Your full name"></label></div>
-    <div><label>Mobile number <b>*</b><span class="pre"><span>+91</span><input name="phone" type="tel" inputmode="numeric" required autocomplete="tel-national" placeholder="10-digit number"></span></label></div>
-    <div class="full"><label>Email <small style="font-weight:400;color:var(--mute)">(optional)</small><input name="email" type="email" autocomplete="email" placeholder="you@email.com"></label></div>
-    <div class="full"><label>Destination<select name="region"><option value="">Select destination</option><option>Thailand</option><option>Himachal Pradesh</option></select></label></div>
-    <div class="full"><label>Cities <small style="font-weight:400;color:var(--mute)">(select one or more)</small></label><div class="chips"></div></div>
-    <div><label>Travel date<input name="date" type="date"></label></div>
+    <div><label>Mobile <b>*</b><span class="pre"><span>+91</span><input name="phone" type="tel" inputmode="numeric" required autocomplete="tel-national" placeholder="10-digit number"></span></label></div>
+    <div><label>Destination<select name="region"><option value="">Select</option><option>Thailand</option><option>Himachal Pradesh</option></select></label></div>
     <div><label>Travellers<input name="pax" type="number" min="1" max="50" value="2"></label></div>
-    <div class="full"><label>Notes<textarea name="msg" rows="2" placeholder="Honeymoon, kids, budget, hotel type…"></textarea></label></div>
+    <div class="full"><label>Cities <small>(select one or more)</small></label><div class="chips"></div></div>
+    <div><label>Travel date<input name="date" type="date"></label></div>
+    <div><label>Email <small>(optional)</small><input name="email" type="email" autocomplete="email" placeholder="you@email.com"></label></div>
+    <div class="full"><label>Notes <small>(optional)</small><textarea name="msg" rows="1" placeholder="Honeymoon, kids, budget…"></textarea></label></div>
     <div class="full"><button class="btn btn-orange btn-w" type="submit">Get my free quote →</button></div>
-    <p class="fine">🔒 We only use your details to plan your trip.</p>
   </form>
   <div class="okbox"><div class="tick">✓</div><h3>Thank you!</h3><p class="sub">We've received your enquiry. Our travel expert will contact you shortly.</p></div>
 </div></div>
@@ -172,7 +130,24 @@
   </div>
   <div class="copy"><span>© 2026 Goinggly. All rights reserved.</span><span>Prices and inclusions are confirmed in your written quote.</span></div>
 </div></footer>
-<div class="fabs"><a class="fab" style="background:#25d366" href="#" data-wa aria-label="WhatsApp">💬</a><a class="fab q" href="#quote" aria-label="Get free quote">✈</a></div>
-<script src="main.js?v=mvc1pp5k" defer></script>
+<dialog class="qmodal" id="quote-modal"><button type="button" class="qx x" aria-label="Close">×</button><div class="qcard">
+  <div class="head"><h3>Get a free quote</h3><p class="sub">Takes less than a minute.</p></div>
+  <form class="qform" data-enquiry novalidate data-region="" data-cities="">
+    <input type="hidden" name="package" value="">
+    <div class="pkgsel"><button type="button" aria-label="Remove package">×</button></div>
+    <div><label>Name <b>*</b><input name="name" required autocomplete="name" placeholder="Your full name"></label></div>
+    <div><label>Mobile <b>*</b><span class="pre"><span>+91</span><input name="phone" type="tel" inputmode="numeric" required autocomplete="tel-national" placeholder="10-digit number"></span></label></div>
+    <div><label>Destination<select name="region"><option value="" selected>Select</option><option>Thailand</option><option>Himachal Pradesh</option></select></label></div>
+    <div><label>Travellers<input name="pax" type="number" min="1" max="50" value="2"></label></div>
+    <div class="full"><label>Cities <small>(select one or more)</small></label><div class="chips"></div></div>
+    <div><label>Travel date<input name="date" type="date"></label></div>
+    <div><label>Email <small>(optional)</small><input name="email" type="email" autocomplete="email" placeholder="you@email.com"></label></div>
+    <div class="full"><label>Notes <small>(optional)</small><textarea name="msg" rows="1" placeholder="Honeymoon, kids, budget…"></textarea></label></div>
+    <div class="full"><button class="btn btn-orange btn-w" type="submit">Get my free quote →</button></div>
+  </form>
+  <div class="okbox"><div class="tick">✓</div><h3>Thank you!</h3><p class="sub">We've received your enquiry. Our travel expert will contact you shortly.</p><button type="button" class="btn btn-line qx">Close</button></div>
+</div></dialog>
+<div class="fabs"><a class="fab" style="background:#25d366" href="#" data-wa aria-label="WhatsApp">💬</a><a class="fab q" href="#quote" data-quote aria-label="Get free quote">✈</a></div>
+<script src="main.js?v=mvc9wj5f" defer></script>
 </body>
 </html>

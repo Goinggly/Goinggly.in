@@ -146,35 +146,38 @@
     });
   });
 
-  // Package cards: "View details" expands the card to show the day-by-day itinerary
-  d.querySelectorAll("[data-toggle]").forEach(function (b) {
-    b.addEventListener("click", function () {
-      var card = b.closest(".pkg");
-      var open = !card.classList.contains("open");
-      var grid = card.parentElement;
-      grid.querySelectorAll(".pkg.open").forEach(function (c) { if (c !== card) setOpen(c, false); });
-      setOpen(card, open);
-      if (open) setTimeout(function () { card.scrollIntoView({ behavior: "smooth", block: "start" }); }, 60);
-    });
-  });
-  function setOpen(card, open) {
-    card.classList.toggle("open", open);
-    var b = card.querySelector("[data-toggle]");
-    b.setAttribute("aria-expanded", open);
-    b.querySelector(".t").textContent = open ? "Hide details" : "View details";
+  // ---- Quote popup: every [data-quote] button/link opens the same enquiry form ----
+  var modal = d.getElementById("quote-modal");
+  var mform = modal ? modal.querySelector("form[data-enquiry]") : null;
+  var pageForm = d.querySelector("#quote form[data-enquiry]") || d.querySelector("form[data-enquiry]");
+  function regionOf(city) { for (var r in REGIONS) if (REGIONS[r].indexOf(city) > -1) return r; return ""; }
+  function resetCard(card) {
+    card.classList.remove("done");
+    card.querySelector(".okbox").classList.remove("on");
+    var b = card.querySelector('button[type="submit"]');
+    if (b) { b.disabled = false; b.textContent = "Get my free quote →"; }
   }
-
-  // "Get quote" on a package: tag the main form with the package and jump to it
-  d.querySelectorAll("[data-package]").forEach(function (b) {
+  function openQuote(pkg, citiesStr) {
+    if (!modal || !modal.showModal) { var q = d.getElementById("quote"); if (q) q.scrollIntoView({ behavior: "smooth" }); return; }
+    resetCard(modal.querySelector(".qcard"));
+    var cities = (citiesStr || (pageForm && pageForm.getAttribute("data-cities")) || "").split(",").filter(Boolean);
+    var region = regionOf(cities[0]) || (pageForm && pageForm.getAttribute("data-region")) || "";
+    mform.elements.region.value = region;
+    renderChips(mform, region, cities);
+    mform.elements.package.value = pkg || "";
+    var tag = mform.querySelector(".pkgsel");
+    if (pkg) { tag.firstChild.textContent = "📦 " + pkg + " "; tag.classList.add("on"); } else tag.classList.remove("on");
+    modal.showModal();
+    d.body.classList.add("noscroll");
+  }
+  if (modal) {
+    modal.addEventListener("click", function (e) { if (e.target === modal || e.target.closest(".qx")) modal.close(); });
+    modal.addEventListener("close", function () { d.body.classList.remove("noscroll"); });
+  }
+  d.querySelectorAll("[data-quote]").forEach(function (b) {
     b.addEventListener("click", function (e) {
       e.preventDefault();
-      var form = d.querySelector("form[data-enquiry]");
-      var name = b.getAttribute("data-package");
-      form.elements.package.value = name;
-      var tag = form.querySelector(".pkgsel");
-      tag.firstChild.textContent = "📦 " + name + " ";
-      tag.classList.add("on");
-      d.getElementById("quote").scrollIntoView({ behavior: "smooth", block: "center" });
+      openQuote(b.getAttribute("data-package"), b.getAttribute("data-cities"));
     });
   });
 

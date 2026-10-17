@@ -262,38 +262,6 @@ details p{padding:0 0 18px;color:var(--mute);font-size:.94rem}
   .js .reveal{opacity:1;transform:none}
 }
 
-/* Expandable package cards */
-.pk-grid{grid-auto-flow:dense;align-items:start}
-.pkg .route{font-size:.8rem;color:var(--mute);margin:-4px 0 10px;font-weight:500}
-.pkg .btns{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
-.pkg .btn-line{padding:9px 14px;font-size:.82rem}
-.pkg .btn-line i{font-style:normal;display:inline-block;transition:transform .3s}
-.pkg.open .btn-line i{transform:rotate(180deg)}
-.pkg .more{display:grid;grid-template-rows:0fr;visibility:hidden;transition:grid-template-rows .45s var(--ease),visibility 0s .45s}
-.pkg.open .more{grid-template-rows:1fr;visibility:visible;transition-delay:0s}
-.pkg .more-in{overflow:hidden;min-height:0}
-.pkg.open{grid-column:1/-1;flex-direction:row;border-color:var(--sky);box-shadow:0 26px 50px -20px rgba(15,155,240,.35)}
-.pkg.open>.ph{flex:0 0 340px;height:auto;min-height:280px}
-.pkg.open>.body{flex:1;min-width:0;padding:22px 26px 24px}
-.pkg .mh{margin:18px 0 14px;padding-top:16px;border-top:1px dashed var(--line);font-size:1rem}
-.tl{list-style:none;columns:2;column-gap:32px}
-.tl li{break-inside:avoid;position:relative;padding:0 0 16px 20px;margin-left:6px;border-left:2px solid #cde8fb}
-.tl li::before{content:"";position:absolute;left:-7px;top:3px;width:12px;height:12px;border-radius:50%;background:#fff;border:3px solid var(--sky)}
-.tl .dn{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--orange-d)}
-.tl h4{font-size:.95rem;color:var(--navy);margin:1px 0 3px}
-.tl p{font-size:.85rem;color:var(--mute)}
-.inc2{margin-top:8px;gap:14px}
-.inc2 .panel{padding:16px 18px;border-radius:14px}
-.inc2 h4{margin-bottom:6px;font-size:.95rem;color:var(--navy)}
-.inc2 li{font-size:.84rem;padding:6px 0 6px 24px}
-.mnote{font-size:.78rem;color:var(--mute);margin-top:12px}
-@media (max-width:820px){
-  .pkg.open{flex-direction:column}
-  .pkg.open>.ph{flex:none;height:200px;min-height:0}
-  .pkg.open>.body{padding:18px}
-  .tl{columns:1}
-}
-
 /* Photos: keep the interesting lower part of wide banners in view */
 .hero>.ph img{object-position:center 62%}
 .pkg .ph img,.dest .ph img{object-position:center 40%}
@@ -305,3 +273,53 @@ details p{padding:0 0 18px;color:var(--mute);font-size:.94rem}
   .hero::before{display:none}
   .hero .container{padding-top:4px}
 }
+
+/* ---- Package cards (3 per page, larger) ---- */
+.pk-grid{gap:28px}
+.pkg .ph{height:250px}
+.pkg .body{padding:22px 24px 24px}
+.pkg h3{font-size:1.3rem;margin-bottom:12px}
+.pkg .dur{left:14px;bottom:14px;font-size:.8rem;padding:6px 14px}
+.route2{display:flex;flex-wrap:wrap;align-items:center;gap:8px 6px;margin-bottom:14px}
+.route2 .rc{display:flex;flex-direction:column;line-height:1.2;background:var(--sky-l);border-radius:12px;padding:7px 12px}
+.route2 .rc b{font-size:.88rem;color:var(--navy);font-weight:600}
+.route2 .rc small{font-size:.68rem;color:var(--sky-d);font-weight:500}
+.route2 .ar{font-style:normal;color:var(--sky);font-weight:700}
+.pkg .hl{margin-bottom:14px}
+.pkg .hl li{position:relative;padding:4px 0 4px 22px;font-size:.88rem;color:var(--ink)}
+.pkg .hl li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:700}
+.pkg .inc{margin-bottom:18px}
+.pkg .foot{padding-top:14px;border-top:1px dashed var(--line)}
+.pkg .foot .btn{padding:12px 26px;font-size:.92rem}
+
+/* ---- Compact enquiry form ---- */
+.hero .container{grid-template-columns:minmax(0,1fr) 410px}
+.qcard{padding:18px 18px 16px;border-radius:18px}
+.qcard h3{font-size:1.1rem}
+.qcard .sub{font-size:.8rem;margin-bottom:10px}
+.qform{gap:8px}
+.qform label{font-size:.68rem;margin-bottom:3px}
+.qform label small{font-weight:400;color:var(--mute);font-size:.66rem}
+.qform input,.qform select,.qform textarea{padding:8px 10px;font-size:.84rem;border-radius:9px}
+.qform textarea{min-height:38px;height:38px}
+.pre span{padding:0 9px;font-size:.82rem;border-radius:9px 0 0 9px}
+.pre input{border-radius:0 9px 9px 0}
+.chips{gap:6px}
+.chips span{padding:5px 12px;font-size:.78rem}
+.qform .btn{padding:11px 20px;font-size:.92rem}
+.pkgsel{font-size:.78rem;padding:6px 10px}
+@media (max-width:1020px){.hero .container{grid-template-columns:1fr}}
+
+/* ---- Quote popup ---- */
+body.noscroll{overflow:hidden}
+.qmodal{border:0;padding:0;background:transparent;width:min(460px,calc(100% - 24px));max-height:calc(100vh - 24px);overflow:visible;margin:auto}
+.qmodal::backdrop{background:rgba(7,28,56,.65);backdrop-filter:blur(3px)}
+.qmodal[open]{animation:pop .3s var(--ease)}
+@keyframes pop{from{opacity:0;transform:translateY(18px) scale(.97)}to{opacity:1;transform:none}}
+.qmodal .qcard{max-height:calc(100vh - 24px);overflow:auto;padding:22px 20px 18px}
+.qmodal .x{position:absolute;top:-12px;right:-6px;z-index:2;width:36px;height:36px;border-radius:50%;border:0;background:#fff;color:var(--navy);font-size:1.4rem;line-height:1;cursor:pointer;box-shadow:0 6px 16px rgba(0,0,0,.25)}
+.qmodal .x:hover{background:var(--orange);color:#fff}
+.okbox .btn{margin-top:14px}
+.pkgsel.on{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.pkgsel button{float:none;flex:none}
+.pkg .hl{margin-bottom:18px}
