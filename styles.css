@@ -398,3 +398,20 @@ a.rsum:hover{transform:translateY(-2px)}
 @media (max-width:620px){
   .hero{--ih:640px}
 }
+
+/* Phone/tablet hero v2: the photo covers ONLY the headline block; the enquiry form sits below it */
+@media (max-width:1020px){
+  .hero{display:grid;grid-template-columns:minmax(0,1fr);background:var(--navy)}
+  .hero .container{display:contents}
+  .hero>.ph{grid-area:1/1;position:absolute;inset:0;height:auto;z-index:0;box-shadow:none;-webkit-mask-image:none;mask-image:none}
+  .hero::before{grid-area:1/1;position:absolute;inset:0;height:auto;display:block;z-index:1;background:linear-gradient(180deg,rgba(7,28,56,.72),rgba(7,28,56,.52) 55%,rgba(7,28,56,.74))}
+  .hero .container>div:first-child{grid-area:1/1;position:relative;z-index:2;padding:40px 22px 48px}
+  .hero .qcard{grid-area:2/1;position:relative;z-index:2;margin:26px 0 40px;width:calc(100% - 44px);max-width:560px;justify-self:center}
+}
+@media (max-width:620px){
+  .hero .ticks{display:none}
+  .hero .lede{margin-bottom:0}
+}
+@media (max-width:1020px){
+  .hero>.ph,.hero::before{grid-area:1/1/2/2}
+}
