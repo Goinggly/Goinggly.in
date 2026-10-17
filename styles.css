@@ -415,3 +415,11 @@ a.rsum:hover{transform:translateY(-2px)}
 @media (max-width:1020px){
   .hero>.ph,.hero::before{grid-area:1/1/2/2}
 }
+
+/* FIX: on phones the closed menu was invisible but still tappable (its links sat over the page) */
+@media (max-width:820px){
+  .nav{pointer-events:none}
+  .nav.open{pointer-events:auto}
+  .nav:not(.open) *{visibility:hidden!important;pointer-events:none!important}
+  .dd-menu{visibility:inherit}
+}
