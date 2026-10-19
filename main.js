@@ -7,7 +7,7 @@
     crmEndpoint: "", whatsapp: "", email: "enquiry@goinggly.in",
     // Zoho CRM "Goinggly Website Enquiry" web form (Leads, B2C layout). These values are public by design.
     zoho: {
-      enabled: false,                 // false = visitors still use the email fallback; add ?crmtest=1 to the URL to test the CRM link
+      enabled: true,                  // true = every enquiry goes to Zoho CRM (set false to fall back to email)
       action: "https://crm.zoho.com/crm/WebToLeadForm",
       xnQsjsdp: "657e052eff30aa9046098db46c0e969248d88bd2f3366cc6848c89f419d2f523",
       xmIwtLD: "27e81dbe97b49c1fd04e37b542efcbd687c5b1cfa71f48740e6a4f529f74853bcf9278be0a13ff5a74337cd8bcdb223d",
