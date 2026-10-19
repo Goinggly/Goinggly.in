@@ -423,3 +423,21 @@ a.rsum:hover{transform:translateY(-2px)}
   .nav:not(.open) *{visibility:hidden!important;pointer-events:none!important}
   .dd-menu{visibility:inherit}
 }
+
+/* ---- Compact review cards (About page) ---- */
+.rv-grid.sm{grid-template-columns:repeat(5,1fr);gap:14px;align-items:start}
+.rv.sm{padding:16px 15px;gap:8px;border-radius:14px;box-shadow:0 8px 22px -14px rgba(11,37,69,.3)}
+.rv.sm .stars{font-size:.85rem;letter-spacing:1px}
+.rv.sm blockquote{font-size:.8rem;line-height:1.55}
+.rv.sm.long blockquote{max-height:6.9em}
+.rv.sm .rmore{font-size:.76rem;margin-top:-2px}
+.rv.sm figcaption{padding-top:8px}
+.rv.sm figcaption b{font-size:.82rem}
+.rv.sm figcaption small{font-size:.7rem;line-height:1.35}
+@media (max-width:1100px){.rv-grid.sm{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:760px){.rv-grid.sm{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:620px){
+  .rv-grid.sm{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;padding:4px 20px 14px;margin:0 -20px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .rv-grid.sm::-webkit-scrollbar{display:none}
+  .rv.sm{flex:0 0 74%;scroll-snap-align:center}
+}
