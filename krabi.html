@@ -18,7 +18,7 @@
 <script>document.documentElement.classList.add('js')</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=mvf2nm9a">
+<link rel="stylesheet" href="styles.css?v=mvf44q53">
 </head>
 <body>
 <div class="topbar"><div class="container"><span>✈ <b>Goinggly — Travel Consciously</b></span><span class="hide-m">📞 <a href="tel:+919899654892">+91 98996 54892</a> · <a href="mailto:enquiry@goinggly.in">enquiry@goinggly.in</a></span></div></div>
@@ -48,10 +48,11 @@
     <div><label>Name <b>*</b><input name="name" required autocomplete="name" placeholder="Your full name"></label></div>
     <div><label>Mobile <b>*</b><span class="pre"><span>+91</span><input name="phone" type="tel" inputmode="numeric" required autocomplete="tel-national" placeholder="10-digit number"></span></label></div>
     <div><label>Destination<select name="region"><option value="">Select</option><option>Thailand</option><option>Himachal Pradesh</option></select></label></div>
-    <div><label>Travellers<input name="pax" type="number" min="1" max="50" value="2"></label></div>
-    <div class="full"><label>Cities <small>(select one or more)</small></label><div class="chips"></div></div>
     <div><label>Travel date<input name="date" type="date"></label></div>
-    <div><label>Email <small>(optional)</small><input name="email" type="email" autocomplete="email" placeholder="you@email.com"></label></div>
+    <div class="full"><label>Cities <small>(select one or more)</small></label><div class="chips"></div></div>
+    <div><label>Adults <small>(13+ yrs)</small><input name="adults" type="number" min="1" max="50" value="2"></label></div>
+    <div><label>Children <small>(2–12 yrs)</small><input name="children" type="number" min="0" max="20" value="0"></label></div>
+    <div class="full"><label>Email <small>(optional)</small><input name="email" type="email" autocomplete="email" placeholder="you@email.com"></label></div>
     <div class="full"><label>Notes <small>(optional)</small><textarea name="msg" rows="1" placeholder="Honeymoon, kids, budget…"></textarea></label></div>
     <div class="full"><button class="btn btn-orange btn-w" type="submit">Get my free quote →</button></div>
   </form>
@@ -138,10 +139,11 @@ I would definitely recommend them. Special thanks to Ankit for helping us out ch
     <div><label>Name <b>*</b><input name="name" required autocomplete="name" placeholder="Your full name"></label></div>
     <div><label>Mobile <b>*</b><span class="pre"><span>+91</span><input name="phone" type="tel" inputmode="numeric" required autocomplete="tel-national" placeholder="10-digit number"></span></label></div>
     <div><label>Destination<select name="region"><option value="">Select</option><option>Thailand</option><option>Himachal Pradesh</option></select></label></div>
-    <div><label>Travellers<input name="pax" type="number" min="1" max="50" value="2"></label></div>
-    <div class="full"><label>Cities <small>(select one or more)</small></label><div class="chips"></div></div>
     <div><label>Travel date<input name="date" type="date"></label></div>
-    <div><label>Email <small>(optional)</small><input name="email" type="email" autocomplete="email" placeholder="you@email.com"></label></div>
+    <div class="full"><label>Cities <small>(select one or more)</small></label><div class="chips"></div></div>
+    <div><label>Adults <small>(13+ yrs)</small><input name="adults" type="number" min="1" max="50" value="2"></label></div>
+    <div><label>Children <small>(2–12 yrs)</small><input name="children" type="number" min="0" max="20" value="0"></label></div>
+    <div class="full"><label>Email <small>(optional)</small><input name="email" type="email" autocomplete="email" placeholder="you@email.com"></label></div>
     <div class="full"><label>Notes <small>(optional)</small><textarea name="msg" rows="1" placeholder="Honeymoon, kids, budget…"></textarea></label></div>
     <div class="full"><button class="btn btn-orange btn-w" type="submit">Get my free quote →</button></div>
   </form>
@@ -165,16 +167,17 @@ I would definitely recommend them. Special thanks to Ankit for helping us out ch
     <div><label>Name <b>*</b><input name="name" required autocomplete="name" placeholder="Your full name"></label></div>
     <div><label>Mobile <b>*</b><span class="pre"><span>+91</span><input name="phone" type="tel" inputmode="numeric" required autocomplete="tel-national" placeholder="10-digit number"></span></label></div>
     <div><label>Destination<select name="region"><option value="" selected>Select</option><option>Thailand</option><option>Himachal Pradesh</option></select></label></div>
-    <div><label>Travellers<input name="pax" type="number" min="1" max="50" value="2"></label></div>
-    <div class="full"><label>Cities <small>(select one or more)</small></label><div class="chips"></div></div>
     <div><label>Travel date<input name="date" type="date"></label></div>
-    <div><label>Email <small>(optional)</small><input name="email" type="email" autocomplete="email" placeholder="you@email.com"></label></div>
+    <div class="full"><label>Cities <small>(select one or more)</small></label><div class="chips"></div></div>
+    <div><label>Adults <small>(13+ yrs)</small><input name="adults" type="number" min="1" max="50" value="2"></label></div>
+    <div><label>Children <small>(2–12 yrs)</small><input name="children" type="number" min="0" max="20" value="0"></label></div>
+    <div class="full"><label>Email <small>(optional)</small><input name="email" type="email" autocomplete="email" placeholder="you@email.com"></label></div>
     <div class="full"><label>Notes <small>(optional)</small><textarea name="msg" rows="1" placeholder="Honeymoon, kids, budget…"></textarea></label></div>
     <div class="full"><button class="btn btn-orange btn-w" type="submit">Get my free quote →</button></div>
   </form>
   <div class="okbox"><div class="tick">✓</div><h3>Thank you!</h3><p class="sub">We've received your enquiry. Our travel expert will contact you shortly.</p><button type="button" class="btn btn-line qx">Close</button></div>
 </div></dialog>
 <div class="fabs"><a class="fab call" href="tel:+919899654892" aria-label="Call Goinggly">📞</a><a class="fab" style="background:#25d366" href="#" data-wa aria-label="WhatsApp">💬</a><a class="fab q" href="#quote" data-quote aria-label="Get free quote">✈</a></div>
-<script src="main.js?v=mvf2nm9a" defer></script>
+<script src="main.js?v=mvf44q53" defer></script>
 </body>
 </html>

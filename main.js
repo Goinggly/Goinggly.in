@@ -3,7 +3,21 @@
   // ---- CONFIG -------------------------------------------------------------
   // crmEndpoint: URL that receives every enquiry as a JSON POST (CRM webhook / web-to-lead proxy).
   // whatsapp: digits only with country code, e.g. "919876543210" (used only if crmEndpoint is empty).
-  var CONFIG = { crmEndpoint: "", whatsapp: "", email: "enquiry@goinggly.in" };
+  var CONFIG = {
+    crmEndpoint: "", whatsapp: "", email: "enquiry@goinggly.in",
+    // Zoho CRM "Goinggly Website Enquiry" web form (Leads, B2C layout). These values are public by design.
+    zoho: {
+      enabled: false,                 // false = visitors still use the email fallback; add ?crmtest=1 to the URL to test the CRM link
+      action: "https://crm.zoho.com/crm/WebToLeadForm",
+      xnQsjsdp: "657e052eff30aa9046098db46c0e969248d88bd2f3366cc6848c89f419d2f523",
+      xmIwtLD: "27e81dbe97b49c1fd04e37b542efcbd687c5b1cfa71f48740e6a4f529f74853bcf9278be0a13ff5a74337cd8bcdb223d",
+      actionType: "TGVhZHM=",
+      returnURL: "https://goinggly.in/",
+      referralPerson: "Website",      // CRM: Referral Person (required on B2C)
+      leadChannel: "Website Form",    // CRM: Lead Channel
+      organicLeadSource: ""           // CRM: Lead Source for visitors not coming from ads — set to "Website" once that value exists
+    }
+  };
 
   // Destination -> cities. The form auto-selects the region + city of the page the visitor is on.
   var REGIONS = {
@@ -113,6 +127,7 @@
       if (!ok) { form.querySelector(".err").focus(); return; }
 
       var cities = Array.prototype.map.call(form.querySelectorAll('input[name="cities"]:checked'), function (i) { return i.value; });
+      var cityList = cities.slice();
       var data = {
         name: form.elements.name.value.trim(),
         mobile: form.elements.phone.value.trim(),
@@ -120,7 +135,8 @@
         destination: regionSel.value,
         cities: cities.join(", "),
         travel_date: form.elements.date.value,
-        travellers: form.elements.pax.value,
+        adults: form.elements.adults.value,
+        children: form.elements.children.value,
         package: form.elements.package.value,
         notes: form.elements.msg.value.trim(),
         page: location.pathname.split("/").pop() || "index.html",
@@ -133,7 +149,52 @@
       var card = form.closest(".qcard");
       function done() { card.classList.add("done"); card.querySelector(".okbox").classList.add("on"); }
 
-      if (CONFIG.crmEndpoint) {
+      // Zoho CRM web-to-lead. Field names below are the Zoho API names generated for this web form:
+      //  First Name, Last Name, LEADCF42 Referral Person, Mobile, Email, LEADCF25 Destination, LEADCF3 Cities (multi-select),
+      //  LEADCF155 Trip Type, LEADCF116 Travel Date (DD/MM/YYYY), LEADCF59 Adults, LEADCF62 Childs, Lead Source,
+      //  Description, LEADCF28 Lead Channel, zc_gad (Google click id), aG9uZXlwb3Q (spam trap, must stay empty)
+      function leadSource() {
+        var s = String(track.utm_source || "").toLowerCase();
+        if (track.gclid || /google|adwords|gads/.test(s)) return "Google Ads";
+        if (track.fbclid || /facebook|instagram|meta|^fb$|^ig$/.test(s)) return "Meta Ads";
+        return CONFIG.zoho.organicLeadSource;
+      }
+      function sendToZoho() {
+        var Z = CONFIG.zoho, q = new URLSearchParams();
+        var parts = data.name.split(/\s+/);
+        var mobile = phone.length > 10 ? "+" + phone : "+91" + phone;
+        q.append("xnQsjsdp", Z.xnQsjsdp); q.append("xmIwtLD", Z.xmIwtLD);
+        q.append("actionType", Z.actionType); q.append("returnURL", Z.returnURL);
+        if (track.gclid) q.append("zc_gad", track.gclid);
+        if (parts.length > 1) q.append("First Name", parts[0]);
+        q.append("Last Name", parts.length > 1 ? parts.slice(1).join(" ") : parts[0]);
+        q.append("LEADCF42", Z.referralPerson);
+        q.append("Mobile", mobile);
+        if (data.email) q.append("Email", data.email);
+        if (data.destination) q.append("LEADCF25", data.destination);
+        cityList.forEach(function (c) { q.append("LEADCF3", c); });
+        if (data.destination === "Thailand") q.append("LEADCF155", "International");
+        else if (data.destination === "Himachal Pradesh") q.append("LEADCF155", "Domestic");
+        if (data.travel_date) { var dd = data.travel_date.split("-"); q.append("LEADCF116", dd[2] + "/" + dd[1] + "/" + dd[0]); }
+        q.append("LEADCF59", data.adults || "1");
+        q.append("LEADCF62", data.children || "0");
+        var src = leadSource(); if (src) q.append("Lead Source", src);
+        q.append("LEADCF28", Z.leadChannel);
+        var notes = [];
+        if (data.package) notes.push("Package: " + data.package);
+        if (data.notes) notes.push("Notes: " + data.notes);
+        notes.push("Website page: " + data.page);
+        var utm = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "gclid", "fbclid"].filter(function (k) { return track[k]; })
+          .map(function (k) { return k + "=" + track[k]; });
+        if (utm.length) notes.push("Ad tracking: " + utm.join(", "));
+        q.append("Description", notes.join("\n"));
+        q.append("aG9uZXlwb3Q", "");
+        return fetch(Z.action, { method: "POST", mode: "no-cors", body: q, keepalive: true });
+      }
+
+      if (CONFIG.zoho && CONFIG.zoho.action && (CONFIG.zoho.enabled || /[?&]crmtest=1/.test(location.search))) {
+        sendToZoho().then(done).catch(function () { btn.disabled = false; btn.textContent = "Try again"; });
+      } else if (CONFIG.crmEndpoint) {
         fetch(CONFIG.crmEndpoint, { method: "POST", headers: { "Content-Type": "text/plain;charset=UTF-8" }, body: JSON.stringify(data), keepalive: true })
           .then(done).catch(function () { btn.disabled = false; btn.textContent = "Try again"; });
       } else {

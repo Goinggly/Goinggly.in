@@ -125,10 +125,11 @@ function form(d, title, sub, id, modal = false) {
     <div><label>Name <b>*</b><input name="name" required autocomplete="name" placeholder="Your full name"></label></div>
     <div><label>Mobile <b>*</b><span class="pre"><span>+91</span><input name="phone" type="tel" inputmode="numeric" required autocomplete="tel-national" placeholder="10-digit number"></span></label></div>
     <div><label>Destination<select name="region"><option value=""${region ? "" : " selected"}>Select</option><option>Thailand</option><option>Himachal Pradesh</option></select></label></div>
-    <div><label>Travellers<input name="pax" type="number" min="1" max="50" value="2"></label></div>
-    <div class="full"><label>Cities <small>(select one or more)</small></label><div class="chips"></div></div>
     <div><label>Travel date<input name="date" type="date"></label></div>
-    <div><label>Email <small>(optional)</small><input name="email" type="email" autocomplete="email" placeholder="you@email.com"></label></div>
+    <div class="full"><label>Cities <small>(select one or more)</small></label><div class="chips"></div></div>
+    <div><label>Adults <small>(13+ yrs)</small><input name="adults" type="number" min="1" max="50" value="2"></label></div>
+    <div><label>Children <small>(2–12 yrs)</small><input name="children" type="number" min="0" max="20" value="0"></label></div>
+    <div class="full"><label>Email <small>(optional)</small><input name="email" type="email" autocomplete="email" placeholder="you@email.com"></label></div>
     <div class="full"><label>Notes <small>(optional)</small><textarea name="msg" rows="1" placeholder="Honeymoon, kids, budget…"></textarea></label></div>
     <div class="full"><button class="btn btn-orange btn-w" type="submit">Get my free quote →</button></div>
   </form>
