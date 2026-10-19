@@ -441,3 +441,9 @@ a.rsum:hover{transform:translateY(-2px)}
   .rv-grid.sm::-webkit-scrollbar{display:none}
   .rv.sm{flex:0 0 74%;scroll-snap-align:center}
 }
+
+/* Home hero: slow zoom-in (Ken Burns) on the photo */
+.hero.zoom>.ph{overflow:hidden}
+.hero.zoom>.ph img{transform-origin:60% 55%;will-change:transform;animation:heroZoom 16s ease-in-out infinite alternate}
+@keyframes heroZoom{from{transform:scale(1)}to{transform:scale(1.16)}}
+@media (prefers-reduced-motion:reduce){.hero.zoom>.ph img{animation:none}}
