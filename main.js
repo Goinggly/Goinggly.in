@@ -3,7 +3,7 @@
   // ---- CONFIG -------------------------------------------------------------
   // crmEndpoint: URL that receives every enquiry as a JSON POST (CRM webhook / web-to-lead proxy).
   // whatsapp: digits only with country code, e.g. "919876543210" (used only if crmEndpoint is empty).
-  var CONFIG = { crmEndpoint: "", whatsapp: "", email: "info@goinggly.in" };
+  var CONFIG = { crmEndpoint: "", whatsapp: "", email: "enquiry@goinggly.in" };
 
   // Destination -> cities. The form auto-selects the region + city of the page the visitor is on.
   var REGIONS = {

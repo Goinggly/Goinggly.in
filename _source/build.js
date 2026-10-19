@@ -72,11 +72,11 @@ const SEO = {
 };
 const BIZ = {
   phoneShow: "+91 98996 54892", phoneTel: "+919899654892",
-  street: "Virat Khand, Gomti Nagar", city: "Lucknow", state: "Uttar Pradesh", zip: "226010",
+  street: "Gomti Nagar", city: "Lucknow", state: "Uttar Pradesh", zip: "226010",
   legal: "Goinggly Travels India Pvt. Ltd.",
   map: "https://www.google.com/maps/search/?api=1&query=Goinggly+Virat+Khand+Gomti+Nagar+Lucknow",
 };
-const ORG = { "@context": "https://schema.org", "@type": "TravelAgency", name: "Goinggly", slogan: "Travel Consciously", url: BASE, email: "info@goinggly.in", telephone: BIZ.phoneTel, legalName: BIZ.legal, address: { "@type": "PostalAddress", streetAddress: BIZ.street, addressLocality: BIZ.city, addressRegion: BIZ.state, postalCode: BIZ.zip, addressCountry: "IN" }, areaServed: ["Thailand", "Himachal Pradesh, India"], description: "Premium Thailand and Himachal Pradesh holiday packages with hand-picked hotels, transfers and sightseeing.", knowsAbout: ["Bangkok tour packages", "Pattaya tour packages", "Phuket tour packages", "Krabi tour packages", "Shimla tour packages", "Manali tour packages"] };
+const ORG = { "@context": "https://schema.org", "@type": "TravelAgency", name: "Goinggly", slogan: "Travel Consciously", url: BASE, email: "enquiry@goinggly.in", telephone: BIZ.phoneTel, legalName: BIZ.legal, address: { "@type": "PostalAddress", streetAddress: BIZ.street, addressLocality: BIZ.city, addressRegion: BIZ.state, postalCode: BIZ.zip, addressCountry: "IN" }, areaServed: ["Thailand", "Himachal Pradesh, India"], description: "Premium Thailand and Himachal Pradesh holiday packages with hand-picked hotels, transfers and sightseeing.", knowsAbout: ["Bangkok tour packages", "Pattaya tour packages", "Phuket tour packages", "Krabi tour packages", "Shimla tour packages", "Manali tour packages"] };
 const SITE = { "@context": "https://schema.org", "@type": "WebSite", name: "Goinggly", url: BASE };
 function destSchema(d) {
   return [
@@ -100,7 +100,7 @@ function header(active) {
   const th = D.filter((d) => d.group === "thailand").map((d) => `<a href="${d.slug}.html">${d.name}</a>`).join("");
   const hm = D.filter((d) => d.group === "himalayas").map((d) => `<a href="${d.slug}.html">${d.name}</a>`).join("");
   return `<body>
-<div class="topbar"><div class="container"><span>✈ <b>Goinggly — Travel Consciously</b></span><span class="hide-m">📞 <a href="tel:${BIZ.phoneTel}">${BIZ.phoneShow}</a> · <a href="mailto:info@goinggly.in">info@goinggly.in</a></span></div></div>
+<div class="topbar"><div class="container"><span>✈ <b>Goinggly — Travel Consciously</b></span><span class="hide-m">📞 <a href="tel:${BIZ.phoneTel}">${BIZ.phoneShow}</a> · <a href="mailto:enquiry@goinggly.in">enquiry@goinggly.in</a></span></div></div>
 <header class="site-header"><div class="container">
   <a href="index.html" class="logo" aria-label="Goinggly home"><i>✈</i><span class="lt"><b>Going<span>gly</span></b><em>Travel Consciously</em></span></a>
   <button class="burger" aria-label="Menu" aria-expanded="false"><i></i></button>
@@ -151,7 +151,7 @@ function footer() {
     <div><a href="index.html" class="logo"><i>✈</i><span class="lt"><b>Going<span>gly</span></b><em>Travel Consciously</em></span></a><p class="tag-line">Travel Consciously</p><p>Curated holidays to Thailand and Himachal Pradesh, planned beautifully.</p></div>
     <div><h4>Thailand</h4><ul>${li("thailand")}</ul></div>
     <div><h4>Himachal</h4><ul>${li("himalayas")}</ul></div>
-    <div><h4>Contact</h4><ul><li><a href="about.html">About us</a></li><li><a href="tel:${BIZ.phoneTel}">📞 ${BIZ.phoneShow}</a></li><li><a href="mailto:info@goinggly.in">✉ info@goinggly.in</a></li><li class="addr"><a href="${BIZ.map}" target="_blank" rel="noopener">📍 ${BIZ.street}, ${BIZ.city}, ${BIZ.state} ${BIZ.zip}</a></li></ul></div>
+    <div><h4>Contact</h4><ul><li><a href="about.html">About us</a></li><li><a href="tel:${BIZ.phoneTel}">📞 ${BIZ.phoneShow}</a></li><li><a href="mailto:enquiry@goinggly.in">✉ enquiry@goinggly.in</a></li><li class="addr"><a href="${BIZ.map}" target="_blank" rel="noopener">📍 ${BIZ.street}, ${BIZ.city} ${BIZ.zip}</a></li></ul></div>
   </div>
   <div class="copy"><span>© 2026 ${BIZ.legal} All rights reserved.</span><span>Prices and inclusions are confirmed in your written quote.</span></div>
 </div></footer>
