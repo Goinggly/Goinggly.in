@@ -148,7 +148,7 @@ function footer() {
   const li = (g) => D.filter((d) => d.group === g).map((d) => `<li><a href="${d.slug}.html">${d.name}</a></li>`).join("");
   return `<footer class="site-footer"><div class="container">
   <div class="foot">
-    <div><a href="index.html" class="logo"><i>✈</i><span class="lt"><b>Going<span>gly</span></b><em>Travel Consciously</em></span></a><p class="tag-line">Travel Consciously</p><p>Curated holidays to Thailand and Himachal Pradesh, planned beautifully.</p></div>
+    <div><a href="index.html" class="logo"><i>✈</i><span class="lt"><b>Going<span>gly</span></b><em>Travel Consciously</em></span></a><p>Curated holidays to Thailand and Himachal Pradesh, planned beautifully.</p></div>
     <div><h4>Thailand</h4><ul>${li("thailand")}</ul></div>
     <div><h4>Himachal</h4><ul>${li("himalayas")}</ul></div>
     <div><h4>Contact</h4><ul><li><a href="about.html">About us</a></li><li><a href="tel:${BIZ.phoneTel}">📞 ${BIZ.phoneShow}</a></li><li><a href="mailto:enquiry@goinggly.in">✉ enquiry@goinggly.in</a></li><li class="addr"><a href="${BIZ.map}" target="_blank" rel="noopener">📍 ${BIZ.street}, ${BIZ.city} ${BIZ.zip}</a></li></ul></div>
