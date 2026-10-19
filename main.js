@@ -15,7 +15,7 @@
       returnURL: "https://goinggly.in/",
       referralPerson: "Website",      // CRM: Referral Person (required on B2C)
       leadChannel: "Website Form",    // CRM: Lead Channel
-      organicLeadSource: ""           // CRM: Lead Source for visitors not coming from ads — set to "Website" once that value exists
+      organicLeadSource: "Website"    // CRM: Lead Source for visitors not coming from ads
     }
   };
 
