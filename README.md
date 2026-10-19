@@ -17,7 +17,6 @@ Website for **goinggly.in** (static site, hosted on GitHub Pages).
 - Every image lives in `images/` with a fixed name, e.g. `bangkok-hero.jpg`, `pkg-all4.jpg`, `shimla-spot-3.jpg`.
 - To replace a photo, save the new one with the **same file name** in `images/`, then rebuild.
 - Sizes: hero **1600x900**, cards / highlights / packages **800x600** (JPG, under ~200 KB).
-- Large original files (PNG, etc.) are kept outside the website folder, e.g. `Himachal Image/` and the OneDrive "Thailand Website Images" folder.
 
 ## Changing content
 
