@@ -208,7 +208,7 @@ details.day>.dbody{display:block}
 <div class="hero">
 <div class="wrap">
 <span class="badge">Trip Quote &middot; GLYQ6295</span>
-<h1>Vietnam: Da Nang &amp; Phu Quoc Island</h1>
+<h1>Ankit_Option -3_Trip to Vietnam</h1>
 <p class="sub">6 Nights / 7 Days &middot; 18 Nov 2026 to 24 Nov 2026</p>
 <p class="hello">Prepared for <b>Ankit Kumar Goinggly</b></p>
 </div>
@@ -276,7 +276,7 @@ Nang City and Da Nang Bay
 <div class="tot">&#8377;4,79,500</div>
 <div class="pp">&#8377;68,500 per person (7 travellers)</div>
 <div class="valid ">Valid till 29 Oct 2026, 1:38 PM</div>
-<button type="button" class="btn btn-accept" id="acceptBtn" disabled hidden>I Accept this Quote</button>
+<button type="button" class="btn btn-accept" id="acceptBtn" >I Accept this Quote</button>
 <div class="accepted" id="acceptedBox" hidden></div>
 <a class="btn btn-wa" href="https://wa.me/919899654892?text=Hi%20Goinggly%2C%20I%20want%20to%20confirm%20quote%20GLYQ6295">Confirm on WhatsApp</a>
 <a class="btn btn-line" href="tel:+919899654892">Call us</a>
@@ -289,7 +289,7 @@ Nang City and Da Nang Bay
 </main>
 <div class="cta-bar">
 <a class="c" href="tel:+919899654892">&#9742; Call</a>
-<button type="button" class="a" id="acceptBarBtn" disabled hidden>Accept</button>
+<button type="button" class="a" id="acceptBarBtn" >Accept</button>
 <a class="w" href="https://wa.me/919899654892?text=Hi%20Goinggly%2C%20I%20want%20to%20confirm%20quote%20GLYQ6295">WhatsApp</a>
 </div>
 <!-- Accept this quote: asks only for the customer's name -->
@@ -316,8 +316,8 @@ Nang City and Da Nang Bay
 </div>
 </dialog>
 <script>
-/* ACCEPT_ENDPOINT stays empty until the CRM connection is built. */
-var GLY={quote:"GLYQ6295",token:"bab31c7e",endpoint:""};
+/* ACCEPT_ENDPOINT is the Zoho "Accept Quote" function address; empty = Accept button is hidden by the publisher. */
+var GLY={quote:"GLYQ6295",id:"5083456000089183022",token:"bab31c7e",endpoint:"https://www.zohoapis.com/crm/v7/functions/acceptquote/actions/execute?auth_type=apikey&zapikey=1003.0ea61762f96bde0bedfa754db7306a13.f1518f1cba93f9106ef6bdce0d8a9eb7"};
 (function(){
 var KEY='gly-accepted-'+GLY.quote;
 var dlg=document.getElementById('acceptDlg');
@@ -354,11 +354,19 @@ function done(){
 sub.disabled=false;form.hidden=true;ok.hidden=false;store(n);showAccepted(n);
 document.getElementById('acceptDemo').hidden=!(isLocal&&!GLY.endpoint);
 }
-if(!GLY.endpoint){done();return}   /* not connected yet: shows the thank-you only */
-fetch(GLY.endpoint,{method:'POST',headers:{'Content-Type':'application/json'},
-body:JSON.stringify({quote:GLY.quote,token:GLY.token,name:n,at:new Date().toISOString()})})
-.then(function(r){if(!r.ok)throw 0;done()})
-.catch(function(){sub.disabled=false;err.textContent='Could not send. Please tap WhatsApp to confirm with us.'});
+if(!GLY.endpoint){done();return}   /* local preview only: nothing is sent */
+function fail(m){sub.disabled=false;err.textContent=m}
+var url=GLY.endpoint+(GLY.endpoint.indexOf('?')>-1?'&':'?')+'quoteId='+encodeURIComponent(GLY.id)+'&token='+encodeURIComponent(GLY.token)+'&name='+encodeURIComponent(n);
+fetch(url)
+.then(function(r){return r.json()})
+.then(function(d){
+var s='';try{s=JSON.parse(d.details.output).status}catch(e){}
+if(s==='accepted'||s==='already'){done();return}
+if(s==='expired'){fail('This quote has expired. Please contact us for a fresh quote.');return}
+if(s==='not_open'){fail('This quote can no longer be accepted online. Please contact us.');return}
+fail('We could not record your acceptance. Please tap WhatsApp to confirm with us.');
+})
+.catch(function(){fail('We could not reach our system. Please tap WhatsApp to confirm with us.')});
 };
 })();
 (function(){
