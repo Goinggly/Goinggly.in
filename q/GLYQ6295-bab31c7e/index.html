@@ -133,30 +133,7 @@ section.blk.terms{padding:20px 22px}
 .btn{display:flex;align-items:center;justify-content:center;gap:8px;padding:14px 20px;border-radius:12px;font-weight:600;font-size:.95rem;margin-top:14px}
 .btn-wa{background:linear-gradient(180deg,#34d27b,#18a96b);color:#fff;box-shadow:0 10px 22px -8px rgba(24,169,107,.7)}
 .btn-line{background:#fff;color:var(--sky-d);border:1.5px solid var(--sky)}
-/* accept this quote */
-.btn-accept{width:100%;border:0;font-family:inherit;cursor:pointer;background:linear-gradient(180deg,#ffa043,var(--orange));color:#fff;box-shadow:0 10px 22px -8px rgba(255,138,31,.7);transition:transform .2s,background .2s}
-.btn-accept:hover{transform:translateY(-1px);background:var(--orange-d)}
-.btn-accept:disabled{background:#cbd5e1;box-shadow:none;cursor:not-allowed;transform:none}
-.accepted{margin-top:14px;background:#e9f8f1;border:1.5px solid #9fdcc1;color:#0f6e48;border-radius:12px;padding:12px 14px;font-size:.9rem;font-weight:600}
-.price .accepted small{display:block;font-weight:400;font-size:.78rem;margin-top:2px;color:#2f7d5e;text-transform:none;letter-spacing:0}
 [hidden]{display:none!important}
-dialog.dlg{margin:auto;border:0;border-radius:18px;padding:0;width:min(440px,calc(100% - 28px));box-shadow:0 30px 70px -20px rgba(11,37,69,.55);font-family:var(--font);color:var(--ink)}
-dialog.dlg::backdrop{background:rgba(11,37,69,.55);backdrop-filter:blur(2px)}
-.dlg .in{padding:24px}
-.dlg h3{font-size:1.2rem;color:var(--navy);margin-bottom:6px}
-.dlg p{color:var(--mute);font-size:.9rem}
-.dlg label{display:block;font-size:.78rem;font-weight:600;color:var(--navy);margin:18px 0 6px}
-.dlg input{width:100%;font:inherit;font-size:1rem;padding:12px 14px;border:1.5px solid var(--line);border-radius:12px;outline:0}
-.dlg input:focus{border-color:var(--sky);box-shadow:0 0 0 4px var(--sky-l)}
-.dlg .err{color:var(--red);font-size:.8rem;min-height:1.2em;margin-top:6px}
-.dlg .act-row{display:flex;gap:10px;margin-top:14px}
-.dlg .act-row button{flex:1;font:inherit;font-weight:600;padding:13px;border-radius:12px;border:0;cursor:pointer}
-.dlg .b-cancel{background:var(--sky-l);color:var(--sky-d)}
-.dlg .b-submit{background:linear-gradient(180deg,#ffa043,var(--orange));color:#fff}
-.dlg .b-submit:disabled{opacity:.6;cursor:wait}
-.dlg .ok{text-align:center;padding:10px 4px 4px}
-.dlg .ok .tick{width:56px;height:56px;border-radius:50%;background:#e9f8f1;color:var(--green);display:grid;place-items:center;font-size:1.8rem;margin:0 auto 12px}
-.dlg .demo{margin-top:14px;font-size:.74rem;color:#b45309;background:#fff7ed;border-radius:8px;padding:6px 10px}
 .foot{margin:10px 0 90px;text-align:center;color:var(--mute);font-size:.8rem}
 .foot b{color:var(--navy)}
 .cta-bar{display:none}
@@ -174,8 +151,6 @@ dialog.dlg::backdrop{background:rgba(11,37,69,.55);backdrop-filter:blur(2px)}
 section.blk{padding:18px}
 .cta-bar{display:flex;position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--line);padding:10px 14px;gap:10px;z-index:20;box-shadow:0 -8px 24px -14px rgba(11,37,69,.35)}
 .cta-bar a,.cta-bar button{flex:1;text-align:center;padding:12px 6px;border-radius:12px;font-weight:600;font-size:.88rem;border:0;font-family:inherit;cursor:pointer}
-.cta-bar .a{background:linear-gradient(180deg,#ffa043,var(--orange));color:#fff;flex:1.5}
-.cta-bar .a:disabled{background:#cbd5e1}
 .cta-bar .w{background:var(--green);color:#fff}
 .cta-bar .c{background:var(--sky-l);color:var(--sky-d)}
 }
@@ -276,8 +251,6 @@ Nang City and Da Nang Bay
 <div class="tot">&#8377;4,79,500</div>
 <div class="pp">&#8377;68,500 per person (7 travellers)</div>
 <div class="valid ">Valid till 29 Oct 2026, 1:38 PM</div>
-<button type="button" class="btn btn-accept" id="acceptBtn" >I Accept this Quote</button>
-<div class="accepted" id="acceptedBox" hidden></div>
 <a class="btn btn-wa" href="https://wa.me/919899654892?text=Hi%20Goinggly%2C%20I%20want%20to%20confirm%20quote%20GLYQ6295">Confirm on WhatsApp</a>
 <a class="btn btn-line" href="tel:+919899654892">Call us</a>
 <p class="note">TCS is excluded. Confirm before the validity date to lock this rate.</p>
@@ -289,86 +262,9 @@ Nang City and Da Nang Bay
 </main>
 <div class="cta-bar">
 <a class="c" href="tel:+919899654892">&#9742; Call</a>
-<button type="button" class="a" id="acceptBarBtn" >Accept</button>
 <a class="w" href="https://wa.me/919899654892?text=Hi%20Goinggly%2C%20I%20want%20to%20confirm%20quote%20GLYQ6295">WhatsApp</a>
 </div>
-<!-- Accept this quote: asks only for the customer's name -->
-<dialog class="dlg" id="acceptDlg" aria-labelledby="acceptTitle">
-<div class="in">
-<div id="acceptForm">
-<h3 id="acceptTitle">Accept this quote</h3>
-<p>Quote <b>GLYQ6295</b> &middot; &#8377;4,79,500 for 7 Adults. Please enter your name to accept it.</p>
-<label for="acceptName">Your full name</label>
-<input id="acceptName" type="text" maxlength="80" autocomplete="name" placeholder="e.g. Sheetal Bhalla">
-<div class="err" id="acceptErr" role="alert"></div>
-<div class="act-row">
-<button type="button" class="b-cancel" id="acceptCancel">Cancel</button>
-<button type="button" class="b-submit" id="acceptSubmit">Submit</button>
-</div>
-</div>
-<div class="ok" id="acceptOk" hidden>
-<div class="tick">&#10003;</div>
-<h3>Thank you for accepting the quote!</h3>
-<p>Our booking team will start your booking and payment process. The payment schedule will be shared shortly by our accounts team.</p>
-<div class="act-row"><button type="button" class="b-submit" id="acceptDone">Close</button></div>
-<div class="demo" id="acceptDemo" hidden>Preview only: nothing has been saved to the CRM yet.</div>
-</div>
-</div>
-</dialog>
 <script>
-/* ACCEPT_ENDPOINT is the Zoho "Accept Quote" function address; empty = Accept button is hidden by the publisher. */
-var GLY={quote:"GLYQ6295",id:"5083456000089183022",token:"bab31c7e",endpoint:"https://www.zohoapis.com/crm/v7/functions/acceptquote/actions/execute?auth_type=apikey&zapikey=1003.0ea61762f96bde0bedfa754db7306a13.f1518f1cba93f9106ef6bdce0d8a9eb7"};
-(function(){
-var KEY='gly-accepted-'+GLY.quote;
-var dlg=document.getElementById('acceptDlg');
-var btns=[document.getElementById('acceptBtn'),document.getElementById('acceptBarBtn')];
-var name=document.getElementById('acceptName'),err=document.getElementById('acceptErr');
-var form=document.getElementById('acceptForm'),ok=document.getElementById('acceptOk');
-var sub=document.getElementById('acceptSubmit'),box=document.getElementById('acceptedBox');
-var isLocal=/^(localhost|127\.)/.test(location.hostname);
-function store(v){try{if(v===null)localStorage.removeItem(KEY);else if(v)localStorage.setItem(KEY,v);else return localStorage.getItem(KEY)}catch(e){}return null}
-if(/[?&]reset\b/.test(location.search))store(null);
-function showAccepted(n){
-box.hidden=false;
-box.innerHTML='&#10003; Quote accepted by <span></span><small>Our accounts team will share the payment schedule shortly.</small>';
-box.querySelector('span').textContent=n;
-btns.forEach(function(b){if(b){b.disabled=true;b.textContent='Accepted'}});
-var pb=document.getElementById('acceptBtn');if(pb)pb.hidden=true;
-}
-var prev=store();if(prev)showAccepted(prev);
-function open(){
-if(btns[0]&&btns[0].disabled)return;
-form.hidden=false;ok.hidden=true;err.textContent='';name.value='';
-if(dlg.showModal)dlg.showModal();else dlg.setAttribute('open','');
-setTimeout(function(){name.focus()},50);
-}
-btns.forEach(function(b){if(b)b.addEventListener('click',open)});
-document.getElementById('acceptCancel').onclick=function(){dlg.close()};
-document.getElementById('acceptDone').onclick=function(){dlg.close()};
-name.addEventListener('keydown',function(ev){if(ev.key==='Enter'){ev.preventDefault();sub.click()}});
-sub.onclick=function(){
-var n=name.value.replace(/\s+/g,' ').trim();
-if(n.length<2){err.textContent='Please enter your name.';name.focus();return}
-err.textContent='';sub.disabled=true;
-function done(){
-sub.disabled=false;form.hidden=true;ok.hidden=false;store(n);showAccepted(n);
-document.getElementById('acceptDemo').hidden=!(isLocal&&!GLY.endpoint);
-}
-if(!GLY.endpoint){done();return}   /* local preview only: nothing is sent */
-function fail(m){sub.disabled=false;err.textContent=m}
-var url=GLY.endpoint+(GLY.endpoint.indexOf('?')>-1?'&':'?')+'quoteId='+encodeURIComponent(GLY.id)+'&token='+encodeURIComponent(GLY.token)+'&name='+encodeURIComponent(n);
-fetch(url)
-.then(function(r){return r.json()})
-.then(function(d){
-var s='';try{s=JSON.parse(d.details.output).status}catch(e){}
-if(s==='accepted'||s==='already'){done();return}
-if(s==='expired'){fail('This quote has expired. Please contact us for a fresh quote.');return}
-if(s==='not_open'){fail('This quote can no longer be accepted online. Please contact us.');return}
-fail('We could not record your acceptance. Please tap WhatsApp to confirm with us.');
-})
-.catch(function(){fail('We could not reach our system. Please tap WhatsApp to confirm with us.')});
-};
-})();
 (function(){
 var days=document.querySelectorAll('details.day');
 var o=document.getElementById('expandAll'),c=document.getElementById('collapseAll');
