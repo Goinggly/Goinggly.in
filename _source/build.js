@@ -56,6 +56,7 @@ function head(title, desc, page, image, schema = []) {
 <link rel="canonical" href="${url}">
 <meta name="theme-color" content="#0f9bf0">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%230f9bf0'/%3E%3Ctext x='50' y='68' font-size='56' text-anchor='middle' fill='white'%3E%E2%9C%88%3C/text%3E%3C/svg%3E">
+${page === "index.html" ? '<meta name="facebook-domain-verification" content="r3t54lb710ogwuzpo2e9qrlppwxhc3" />' : ''}
 <meta property="og:site_name" content="Goinggly"><meta property="og:type" content="website"><meta property="og:locale" content="en_IN">
 <meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:url" content="${url}"><meta property="og:image" content="${img}">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(title)}"><meta name="twitter:description" content="${esc(desc)}"><meta name="twitter:image" content="${img}">
