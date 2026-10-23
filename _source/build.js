@@ -159,6 +159,8 @@ function footer() {
 <dialog class="qmodal" id="quote-modal"><button type="button" class="qx x" aria-label="Close">×</button>${form(null, "Get a free quote", "Takes less than a minute.", "", true)}</dialog>
 <div class="fabs"><a class="fab call" href="tel:${BIZ.phoneTel}" aria-label="Call Goinggly">📞</a><a class="fab" style="background:#25d366" href="#" data-wa aria-label="WhatsApp">💬</a><a class="fab q" href="#quote" data-quote aria-label="Get free quote">✈</a></div>
 <script src="main.js?v=${VER}" defer></script>
+<script>window.$zoho=window.$zoho || {};$zoho.salesiq=$zoho.salesiq||{ready:function(){}}</script>
+<script id="zsiqscript" src="https://salesiq.zohopublic.com/widget?wc=siqdd369953893b6b8c69223a98329cef460e1e5989b7237b17605c684d29519e0c7e55b6cce0ea2b689a085d1c5ec3b2ba" defer></script>
 </body>
 </html>`;
 }
